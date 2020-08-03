@@ -1,3 +1,3 @@
-import './modul'
+import './modul';
 
-console.log("working !");
+console.log("working!");
