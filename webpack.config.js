@@ -14,10 +14,10 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
-        extensions: [',js'], // js, json default extensions, this only .js use
+        extensions: ['.js'], // js, json default extensions, this only .js use
         alias: {  // alias for import or require modules by property resolve alias
             '@': path.resolve(__dirname, 'src'),
-            '@core': path.resolve(__dirname, 'src')
+            '@core': path.resolve(__dirname, 'src/core')
         }
     },
     plugins: [
@@ -27,13 +27,26 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-                { from: path.resolve(__dirname, 'src/favicon.io'),
-                    to: path.resolve(__dirname, 'dist') },
-            ],
-        }),
+                    { from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'dist') },
+                ],
+            }),
         new MiniCssExtractPlugin({
-            filename: 'bundle.[hash].css'
+            filename: 'bundle.[hash].css',
         })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                   MiniCssExtractPlugin.loader, // loader static css
+                    // Translates CSS into CommonJS
+                    'css-loader',
+                    // Compiles Sass to CSS
+                    'sass-loader',
+                ],
+            },
+        ],
+    },
 }
 
