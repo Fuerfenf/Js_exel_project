@@ -1,3 +1,4 @@
 .idea
-node_moduls
-
+.node_moduls
+node_modules
+dist

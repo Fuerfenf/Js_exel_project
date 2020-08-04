@@ -48,6 +48,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "chokidar": "^3.4.1",
-    "css-loader": "^4.2.0"
+    "css-loader": "^4.2.0",
+    "normalize.css": "^8.0.1"
   }
 }
