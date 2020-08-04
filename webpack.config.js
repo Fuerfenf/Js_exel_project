@@ -5,12 +5,21 @@ const CopyPlugin = require('copy-webpack-plugin');
 // ^ Copies individual files or entire directories, which already exist, to the build directory.
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //  plugin extracts CSS into separate files
 
+// part marks mode type
+const isProd = process.env.NODE_ENV === "production";   // variable defining Node build mode production
+const isDev = !isProd;  // same as isProd but for development
+
+console.log('Is Prod', isProd)
+console.log('Is DEV', isDev)
+
+const bundleFilename = (ext) => isDev ? `Bundle.${ext}` : `Bundle.[hash].${ext}` // return filenames dev/prod for js,css
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: "development",
     entry: "./index.js",
     output: {
-        filename: "bundle.[hash].js", // add hash, reject cash problems (user - hash)
+        filename: bundleFilename('js'), // add hash, reject cash problems
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
@@ -22,8 +31,12 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new HTMLWebpackPlugin({         // set properties html web plugin
+        new HTMLWebpackPlugin({     // set properties html web plugin
             template: "index.html",
+            minify: {      // minification html
+                removeComments: isProd,  // put obj if isProd (true) , remove comments in Prod mode from html
+                collapseWhitespace: isProd, // remove whitespaces from html
+            }
         }),
         new CopyPlugin({
             patterns: [
@@ -32,7 +45,7 @@ module.exports = {
                 ],
             }),
         new MiniCssExtractPlugin({
-            filename: 'bundle.[hash].css',
+            filename: bundleFilename('css'),
         })
     ],
     module: {
