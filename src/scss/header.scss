@@ -2,6 +2,38 @@
 @import "mixins";
 
 .excel__header{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $header-height;
+  padding: 7px 2px 0;
+  display: flex; // diff sides
+  justify-content: space-between;
+  background: #38b838;
+  & .input{
+    margin: -1px 3px;
+    padding: 4px 7px;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 12px;
+    height: 24px;
+    line-height: 12px;
+    outline: none;
+    min-width: 1px;
+    &:hover {
+      border: 3px solid $border-color;
+    }
+    &:focus{
+      border: 3px solid darkslategray;
+    }
 
-
+  }
+  .button_exit{
+    @include button_exit(yellow);
+  }
+  .button_delete {
+  @include button_delete(red);
+  }
 }

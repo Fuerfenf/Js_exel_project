@@ -1,0 +1,85 @@
+//button universal mixin
+
+@mixin button_exit($color: yellow) {
+  height: 20px;
+  min-width: 20px;
+  padding: 1px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  color: rgba(0,0,0, .7); // blackout
+  & span {
+    font-size: 18px;
+  }
+  &:active, &.active { //selector cont class active
+    color: $color;
+  }
+  &:hover {
+    background: yellow;
+    cursor: pointer;
+  }
+}
+@mixin button_delete($color: red) {
+  height: 20px;
+  min-width: 20px;
+  padding: 1px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  color: rgba(0,0,0, .7); // blackout
+  & span {
+    font-size: 18px;
+  }
+  &:active, &.active { //selector cont class active
+    color: $color;
+  }
+  &:hover {
+    background: red;
+    cursor: pointer;
+  }
+}
+
+@mixin button_align($color: black) {
+  height: 20px;
+  min-width: 20px;
+  padding: 0px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  border-radius: 3px;
+  color: rgba(0,0,0, .9); // blackout
+  & span {
+    font-size: 22px;
+  }
+  &:active, &.active { //selector cont class active
+    color: $color;
+  }
+  &:hover {
+    background: grey;
+    cursor: pointer;
+  }
+}
+@mixin button_format($color: black) {
+  height: 24px;
+  min-width: 24px;
+  padding: -1px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  border-radius: 5px;
+  color: rgba(0,0,0, .6); // blackout
+  & span {
+    font-size: 25px;
+  }
+  &:active, &.active { //selector cont class active
+    color: $color;
+  }
+  &:hover {
+    background: grey;
+    cursor: pointer;
+  }
+}
+
+

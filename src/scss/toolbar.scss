@@ -2,6 +2,20 @@
 @import "mixins";
 
 .excel__toolbar{
-
-
-}
+  background: rgba(0, 128, 0, 0.29);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: $header-height; //top start under header bar
+  height: $toolbar-height;
+  border-top: 2px solid $border-color;
+  border-bottom: 2px solid $border-color;
+  padding: 7px 10px;
+  display: flex; //horisontal
+  .button_align{
+    @include button_align(black);
+    }
+  .button_format{
+    @include button_format(#0000b1)
+  }
+  }
