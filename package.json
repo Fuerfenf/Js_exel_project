@@ -25,7 +25,11 @@
   },
   "homepage": "https://github.com/Fuerfenf/Js_exel_project#readme",
   "private": true,
+  "browserslist": "> 0.25%, not dead",
   "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.0.3",
     "html-webpack-plugin": "^4.3.0",

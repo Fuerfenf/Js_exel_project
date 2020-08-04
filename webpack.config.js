@@ -27,6 +27,7 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
+                    // copy favicon
                     { from: path.resolve(__dirname, 'src/favicon.ico'), to: path.resolve(__dirname, 'dist') },
                 ],
             }),
@@ -46,6 +47,14 @@ module.exports = {
                     'sass-loader',
                 ],
             },
+            {
+                test: /\.js$/,              // babel set
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {    // babel preset
+                    presets: [ '@babel/preset-env']
+                }
+            }
         ],
     },
 }
