@@ -6,6 +6,7 @@
 @import "toolbar";
 @import "formula";
 @import "table";
+@import "dashboard";
 
 
 //styles for element selectors
@@ -25,4 +26,7 @@ body{
 .excel{
   position: relative;
   color: #636363;
+  height: 100%;
+  max-width: 100%;
+  font-size: .8rem;
 }
