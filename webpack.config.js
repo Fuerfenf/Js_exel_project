@@ -11,9 +11,10 @@ const isDev = !isProd; // same as isProd but for development
 const jsLoader = () => {
     const loaders = [
         {
-          loader: 'babel-loader', // babel set
-          options: { // babel preset
-           presets: ['@babel/preset-env'],
+            loader: 'babel-loader', // babel set
+            options: { // babel preset
+                presets: ['@babel/preset-env'],
+                plugins: ['@babel/plugin-proposal-class-properties'],
           },
         },
     ];
@@ -44,7 +45,7 @@ module.exports = {
     },
     devtool: isDev ? 'source-map' : false, // default original source for dev mode
     devServer: { // ad configuration dev server
-        port: 9000,
+        port: 4000,
         hot: isDev, // webpack's Hot Module Replacement feature
     },
     plugins: [
