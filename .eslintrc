@@ -10,7 +10,8 @@
   "rules": {
     "max-len": "off",
     "indent": "off",
-    "require-jsdoc": "off"
+    "require-jsdoc": "off",
+    "eol-last": "off"
   },
   "extends": [
     "eslint:recommended",

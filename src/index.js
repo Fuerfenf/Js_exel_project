@@ -10,3 +10,4 @@ const excel = new Excel('#app', {
 });
 
 excel.render();
+// place for inisial components/ write in ExcelComponent

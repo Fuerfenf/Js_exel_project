@@ -7,17 +7,17 @@ export class Excel {
     }
     getRoot() { // return base DOM node for excel
         const $root = $.create('div', 'excel'); // tag and bs tag class
-        this.components.forEach((Component) => { // get access to everyone of component
+        this.components = this.components.map((Component) => { // get access to everyone of component
             const $el =$.create('div', Component.getClsName);
             const component = new Component($el); // component -> class child from excel component
             $el.html(component.toHTML());
             $root.append($el);
+            return component; // return instans from build class
         });
         return $root; // return html configet tag to Dom
     }
-
-
     render() {
         this.$el.append(this.getRoot());
+        this.components.forEach((component) => component.init());
     }
 }
