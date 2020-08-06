@@ -13,8 +13,11 @@ class Dom {
         this.html('');
         return this;
     }
-    on(eventType, callback) { // method for event analog addEventList
+    set(eventType, callback) { // method for event analog addEventList
         this.$el.addEventListener(eventType, callback);
+    }
+    del(eventType, callback) {
+        this.$el.removeEventListener(eventType,callback);
     }
     append(nodel) {
         if (nodel instanceof Dom) { // for native node

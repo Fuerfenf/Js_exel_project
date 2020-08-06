@@ -4,6 +4,12 @@ export class ToolBar extends ExcelComponent {
     static get getClsName() {
         return 'excel__toolbar';
     }
+    constructor($root, options) {
+        super($root, {
+            name: 'Toolbar',
+            listeners: ['click'],
+        });
+    }
 
     toHTML() {
         return `
@@ -35,5 +41,8 @@ export class ToolBar extends ExcelComponent {
                 </div>
             </div>
         `;
+    }
+    onClick(event) {
+        console.log(event.target);
     }
 }

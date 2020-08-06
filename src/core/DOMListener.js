@@ -12,13 +12,17 @@ export class DOMListener {
         this.listeners.forEach( (listener) => {
             const method = formatMethodName(listener);
             if (!this[method]) {
-                throw new Error(`Method ${method} is not implemented in ${this.name} Component`);
+                throw new Error(`Method ${method} is not implemented in ${this.name || ''} Component`);
             }
-            // $root.on same as $root.addEventListener()
-            this.$root.on(listener, this[method].bind(this) );
+            this[method] = this[method].bind(this); // bind method on his context
+            this.$root.set(listener, this[method]);
         });
     }
     removeDomListeners() { // next step
+        this.listeners.forEach( (listener) => {
+            const method = formatMethodName(listener);
+            this.$root.del(listener, this[method]);
+        });
     }
 }
 

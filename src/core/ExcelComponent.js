@@ -10,6 +10,8 @@ export class ExcelComponent extends DOMListener {
     }
     init() { // central place method used for init components method DOMlisteners
         this.initDomListeners();
+    }
+    destroy() {
         this.removeDomListeners();
     }
 }
