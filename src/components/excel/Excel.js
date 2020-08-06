@@ -2,7 +2,7 @@ import {$} from '@core/dom';
 
 export class Excel {
     constructor(selector, options) {
-        this.$el = document.querySelector(selector); // marks $ DOM node
+        this.$el = $(selector); // marks $ DOM node
         this.components = options.components || [];// in base free array
     }
     getRoot() { // return base DOM node for excel
@@ -10,7 +10,7 @@ export class Excel {
         this.components.forEach((Component) => { // get access to everyone of component
             const $el =$.create('div', Component.getClsName);
             const component = new Component($el); // component -> class child from excel component
-            $el.innerHTML = component.toHTML();
+            $el.html(component.toHTML());
             $root.append($el);
         });
         return $root; // return html configet tag to Dom

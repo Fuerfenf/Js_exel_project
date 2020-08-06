@@ -1,9 +1,35 @@
 class Dom {
-
+    constructor(selector) {
+        this.$el = (typeof selector === 'string') ? document.querySelector(selector) : selector;
+    }
+    html(html) { // setter if html string
+        if (typeof html ==='string') {
+            this.$el.innerHTML = html; // return inner tag
+            return this;
+        }
+        return this.$el.outerHTML.trim(); // return outer tag (.trim delete spaces in string in start/end)
+    }
+    clear() {
+        this.html('');
+        return this;
+    }
+    on() { // method for event analog addEventList
+    }
+    append(nodel) {
+        if (nodel instanceof Dom) { // for native node
+            nodel = nodel.$el;
+        }
+        if (Element.prototype.append) {
+            this.$el.append(nodel);
+        } else {
+            this.$el.appendChild(nodel);
+        }
+        return this;
+    }
 }
 
-export function $() {
-    return new Dom();
+export function $(selector) { // take selector or node
+    return new Dom(selector);
 }
 // statics methods for $
 $.create = (tagName, clss = '') => {
@@ -11,5 +37,5 @@ $.create = (tagName, clss = '') => {
     if (clss) {
         el.classList.add(clss);
     }
-    return el;
+    return $(el);
 };
