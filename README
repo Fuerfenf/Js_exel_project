@@ -1,3 +1,5 @@
+install node.js
+
 Webpack (import/export)
     babel <- cross new/old versions  +
     scss <- preprocessor +
