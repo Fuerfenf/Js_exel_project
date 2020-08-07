@@ -9,12 +9,18 @@ function buildCell() {
     return `<div class="cell" contenteditable=""></div>`;
 }
 function buildColumn(col) {
-    return `<div class="column">${col}</div>`;
+    return `<div class="column">
+            ${col}
+                <div class="col-resize"></div>
+            </div>`;
 }
 function buildRow(content, num ) {
     return `
      <div class="row">
-        <div class="row-info">${num ? num : ''}</div>
+        <div class="row-info">
+            ${num ? num : ''}
+            <div class="row-resize"></div>
+        </div>
         <div class="row-data">${content}</div>
      </div>
     `;
