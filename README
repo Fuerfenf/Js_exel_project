@@ -10,7 +10,5 @@ Webpack (import/export)
         - Prod
             Minified Code +
 Git
-    Prodaction version (in use)
-    Development version (factoring new parts)
 
 Class module starts on uppercase, dif module with functions stroke case
