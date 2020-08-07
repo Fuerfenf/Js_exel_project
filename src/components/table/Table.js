@@ -1,5 +1,6 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 import {createTable} from '@/components/table/table.template';
+import {$} from '@core/dom';
 
 export class Table extends ExcelComponent {
     static get getClsName() {
@@ -7,7 +8,7 @@ export class Table extends ExcelComponent {
     }
     constructor($root) {
         super($root, {
-            listeners: ['click', 'mousedown', 'mousemove', 'mouseup'],
+            listeners: ['click', 'mousedown'],
         });
     }
     toHTML() {
@@ -18,11 +19,19 @@ export class Table extends ExcelComponent {
     }
     onMousedown(event) {
         if (event.target.dataset.resize) {
-            console.log('Start resizing', event.target.dataset.resize);
+            const $target = $(event.target);
+            const $parent = $target.closest('[data-type="resizable"]');
+            const coordinates = $parent.getCordinates();
+            document.onmousemove = (ev) => {
+                const delta = Math.floor(ev.pageX - coordinates.right);
+                const pxvalue = coordinates.width + delta + 'px';
+                $parent.$domEl.style.width = pxvalue;
+                document.querySelectorAll(`[data-col="${$parent.dataIndex.col}"]`)
+                    .forEach((el) => el.style.width = pxvalue);
+            };
+            document.onemouseup = () => {
+                document.onmousemove = null;
+            };
         }
-    }
-    onMousemove() {
-    }
-    onMouseup() {
     }
 }

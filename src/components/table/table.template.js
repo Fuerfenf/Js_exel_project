@@ -5,13 +5,13 @@ const CODES = {
 };
 
 
-function buildCell() {
-    return `<div class="cell" contenteditable=""></div>`;
+function buildCell( __, colIndex) {
+    return `<div class="cell" contenteditable="" data-colindex="${colIndex}"></div>`;
 }
-function buildColumn(col) {
-    return `<div class="column">
+function buildColumn(col, index) {
+    return `<div class="column" data-type="resizable" data-col="${index}">
             ${col}
-                <div class="col-resize" data-resize="coll"></div>
+                <div class="col-resize" data-resize="col"></div>
             </div>`;
 }
 function buildRow(content, num ) {
@@ -37,6 +37,7 @@ export function createTable(rCounter = 25) {
     const cols = new Array(clmCounter)
         .fill('')
         .map(buildChr)
+
         .map(buildColumn)
         .join('');
     rows.push(buildRow(cols));
