@@ -11,15 +11,16 @@ function buildCell() {
 function buildColumn(col) {
     return `<div class="column">
             ${col}
-                <div class="col-resize"></div>
+                <div class="col-resize" data-resize="coll"></div>
             </div>`;
 }
 function buildRow(content, num ) {
+    const resize = num ? '<div class="row-resize" data-resize="row"></div>' : '';
     return `
      <div class="row">
         <div class="row-info">
             ${num ? num : ''}
-            <div class="row-resize"></div>
+            ${resize}
         </div>
         <div class="row-data">${content}</div>
      </div>

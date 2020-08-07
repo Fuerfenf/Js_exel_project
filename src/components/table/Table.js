@@ -16,13 +16,13 @@ export class Table extends ExcelComponent {
     onClick(event) {
         console.log('click', event.target);
     }
-    onMousedown() {
-        console.log('mousedown');
+    onMousedown(event) {
+        if (event.target.dataset.resize) {
+            console.log('Start resizing', event.target.dataset.resize);
+        }
     }
     onMousemove() {
-        console.log('mousemove');
     }
     onMouseup() {
-        console.log('mouseup');
     }
 }
