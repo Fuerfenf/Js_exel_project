@@ -1,15 +1,10 @@
-Webpack (improt/export)
-    babel <- cross new/old versions  +
-    scss <- preprocessor +
-    2 Modes
-        - Dev
-            Dev Server, +
-            SourceMap (only moduls factoring), +
-            Eslint, <- clear code +
-            Not Minified js & CSS +
-        - Prod
-            Minified Code +
-Git
-    Prodaction version (in use)
-    Development version (factoring new parts)
+Webpack,
+babel,
+scss,
+Dev Server,
+SourceMap,
+Eslint,
+Not Minified js & CSS,
+Minified Code,
+
 
