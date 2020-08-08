@@ -37,7 +37,6 @@ export function createTable(rCounter = 25) {
     const cols = new Array(clmCounter)
         .fill('')
         .map(buildChr)
-
         .map(buildColumn)
         .join('');
     rows.push(buildRow(cols));

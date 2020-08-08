@@ -8,14 +8,11 @@ export class Table extends ExcelComponent {
     }
     constructor($root) {
         super($root, {
-            listeners: ['click', 'mousedown'],
+            listeners: ['mousedown'],
         });
     }
     toHTML() {
         return createTable(15);
-    }
-    onClick(event) {
-        console.log('click', event.target);
     }
     onMousedown(event) {
         if (event.target.dataset.resize) {
@@ -23,13 +20,13 @@ export class Table extends ExcelComponent {
             const $parent = $target.closest('[data-type="resizable"]');
             const coordinates = $parent.getCordinates();
             document.onmousemove = (ev) => {
-                const delta = Math.floor(ev.pageX - coordinates.right);
-                const pxvalue = coordinates.width + delta + 'px';
-                $parent.$domEl.style.width = pxvalue;
+                const delta = ev.pageX - coordinates.right;
+                const pxvalue = coordinates.width + delta;
+                $parent.$domEl.style.width = pxvalue + 'px';
                 document.querySelectorAll(`[data-col="${$parent.dataIndex.col}"]`)
-                    .forEach((el) => el.style.width = pxvalue);
+                    .forEach((el) => el.style.width = pxvalue + 'px');
             };
-            document.onemouseup = () => {
+            document.onmouseup = () => {
                 document.onmousemove = null;
             };
         }

@@ -31,7 +31,7 @@ class Dom {
         return this;
     }
     closest(selector) {
-        // return in base native element that yse costructure with functionality as on
+        // return in base native element that use costructure with functionality as on
         return $(this.$domEl.closest(selector));
     }
     getCordinates() {
