@@ -17,7 +17,7 @@ class Dom {
         this.$domEl.addEventListener(eventType, callback);
     }
     del(eventType, callback) {
-        this.$domEl.removeEventListener(eventType,callback);
+        this.$domEl.removeEventListener(eventType, callback);
     }
     append(nodel) {
         if (nodel instanceof Dom) { // for native node
@@ -29,6 +29,9 @@ class Dom {
             this.$domEl.appendChild(nodel);
         }
         return this;
+    }
+    get getEldata() {
+        return this.$domEl.dataset;
     }
     closest(selector) {
         // return in base native element that use costructure with functionality as on

@@ -5,8 +5,8 @@ const CODES = {
 };
 
 
-function buildCell( __, colIndex) {
-    return `<div class="cell" contenteditable="" data-colindex="${colIndex}"></div>`;
+function buildCell(__, colIndex) {
+    return `<div class="cell" contenteditable="" data-col="${colIndex}"></div>`;
 }
 function buildColumn(col, index) {
     return `<div class="column" data-type="resizable" data-col="${index}">
@@ -39,7 +39,7 @@ export function createTable(rCounter = 25) {
         .map(buildChr)
         .map(buildColumn)
         .join('');
-    rows.push(buildRow(cols));
+    rows.push(buildRow(cols, null));
     for (let i = 0; i <=rCounter; i++) {
         const cell = new Array(clmCounter)
             .fill('')
