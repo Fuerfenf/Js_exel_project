@@ -43,6 +43,17 @@ class Dom {
     get dataIndex() {
         return this.$domEl.dataset;
     }
+    selectAll(selector) {
+        return this.$domEl.querySelectorAll(selector);
+    }
+    css(styles={}) { // method for changing params width/height and others take obj
+        // best practice for iteration in object Object.keys(obj), because in cycle FOR IN also takes prototype params its wrong way (for example methods)
+        Object
+            .keys(styles)
+            .forEach((key) => {
+                this.$domEl.style[key] = styles[key];
+            });
+    }
 }
 
 export function $(selector) { // take selector or node

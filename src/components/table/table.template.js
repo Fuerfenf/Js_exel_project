@@ -17,7 +17,7 @@ function buildColumn(col, index) {
 function buildRow(content, num ) {
     const resize = num ? '<div class="row-resize" data-resize="row"></div>' : '';
     return `
-     <div class="row">
+     <div class="row" data-type="resizable">
         <div class="row-info">
             ${num ? num : ''}
             ${resize}
