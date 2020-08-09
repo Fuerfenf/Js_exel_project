@@ -31,6 +31,8 @@ function buildChr(el, index) {
     return String.fromCharCode(CODES.A + index);
 }
 
+// exporting functions
+
 export function createTable(rCounter = 25) {
     const clmCounter = CODES.Z - CODES.A + 1;
     const rows = [];
@@ -48,4 +50,9 @@ export function createTable(rCounter = 25) {
         rows.push(buildRow(cell, i+1));
     }
     return rows.join('');
+}
+
+// helper functions for table
+export function shouldResize(event) {
+    return event.target.dataset.resize;
 }
