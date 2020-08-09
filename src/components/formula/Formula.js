@@ -10,7 +10,6 @@ export class Formula extends ExcelComponent {
             listeners: ['input', 'click'], // list of listeners for addit
         });
     }
-
     toHTML() {
         return `
          <div class="fx_info">fx</div>
@@ -21,6 +20,6 @@ export class Formula extends ExcelComponent {
         console.log('Formula: onInput', event.target.textContent.trim());
     }
     onClick() {
-        console.log("test");
+        console.log('test');
     }
 }

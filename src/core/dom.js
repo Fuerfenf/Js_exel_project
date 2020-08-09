@@ -1,34 +1,58 @@
 class Dom {
     constructor(selector) {
-        this.$el = (typeof selector === 'string') ? document.querySelector(selector) : selector;
+        this.$domEl = (typeof selector === 'string') ? document.querySelector(selector) : selector;
     }
     html(html) { // setter if html string
         if (typeof html ==='string') {
-            this.$el.innerHTML = html; // return inner tag
+            this.$domEl.innerHTML = html; // return inner tag
             return this;
         }
-        return this.$el.outerHTML.trim(); // return outer tag (.trim delete spaces in string in start/end)
+        return this.$domEl.outerHTML.trim(); // return outer tag (.trim delete spaces in string in start/end)
     }
     clear() {
         this.html('');
         return this;
     }
     set(eventType, callback) { // method for event analog addEventList
-        this.$el.addEventListener(eventType, callback);
+        this.$domEl.addEventListener(eventType, callback);
     }
     del(eventType, callback) {
-        this.$el.removeEventListener(eventType,callback);
+        this.$domEl.removeEventListener(eventType, callback);
     }
     append(nodel) {
         if (nodel instanceof Dom) { // for native node
-            nodel = nodel.$el;
+            nodel = nodel.$domEl;
         }
         if (Element.prototype.append) {
-            this.$el.append(nodel);
+            this.$domEl.append(nodel);
         } else {
-            this.$el.appendChild(nodel);
+            this.$domEl.appendChild(nodel);
         }
         return this;
+    }
+    get getEldata() {
+        return this.$domEl.dataset;
+    }
+    closest(selector) {
+        // return in base native element that use costructure with functionality as on
+        return $(this.$domEl.closest(selector));
+    }
+    getCordinates() {
+        return this.$domEl.getBoundingClientRect();
+    }
+    get dataIndex() {
+        return this.$domEl.dataset;
+    }
+    selectAll(selector) {
+        return this.$domEl.querySelectorAll(selector);
+    }
+    css(styles={}) { // method for changing params width/height and others take obj
+        // best practice for iteration in object Object.keys(obj), because in cycle FOR IN also takes prototype params its wrong way (for example methods)
+        Object
+            .keys(styles)
+            .forEach((key) => {
+                this.$domEl.style[key] = styles[key];
+            });
     }
 }
 
