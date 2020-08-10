@@ -31,8 +31,8 @@ class Table extends ExcelComponent {
         } else if (isCell(event)) {
             const $target = $(event.target);
             if (event.shiftKey) {
-                const $currentCell = $target.getId(true);
-                const $targetCell = this.selectionType.currentCell.getId(true);
+                const $targetCell = $target.getId(true);
+                const $currentCell = this.selectionType.currentCell.getId(true);
                 console.log('curr', $currentCell);
                 console.log('targ', $targetCell);
             } else {
