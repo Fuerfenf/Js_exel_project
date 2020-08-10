@@ -31,10 +31,12 @@ class Table extends ExcelComponent {
         } else if (isCell(event)) {
             const $target = $(event.target);
             if (event.shiftKey) {
-                const $targetCell = $target.getId(true);
-                const $currentCell = this.selectionType.currentCell.getId(true);
-                console.log('curr', $currentCell);
-                console.log('targ', $targetCell);
+                const saveTargetCell = $target.getId(true);
+                const saveCurrentCell = this.selectionType.currentCell.getId(true);
+                const groupCols = rangeCols(saveCurrentCell.col, saveTargetCell.col);
+                console.log('curr', saveCurrentCell);
+                console.log('targ', saveTargetCell);
+                console.log(groupCols);
             } else {
                 this.selectionType.select($target);
             }
@@ -43,3 +45,13 @@ class Table extends ExcelComponent {
 }
 
 // local functions
+function rangeCols(startCell, endCell) {
+    if (startCell > endCell) {
+        [endCell, startCell] = [startCell, endCell];
+    }
+    return new Array(endCell-startCell+1)
+        .fill('')
+        .map((__, index) => {
+            return startCell + index;
+        });
+}

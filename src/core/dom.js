@@ -45,7 +45,7 @@ class Dom {
             const parsedId = this.getId().split(':');
             return {
                 row: +parsedId[0],
-                id: +parsedId[1],
+                col: +parsedId[1],
             };
         }
         return this.dataIndex.id;
