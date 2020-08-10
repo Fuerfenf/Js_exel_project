@@ -11,10 +11,6 @@ class Excel {
         this.components = this.components.map((Component) => { // get access to everyone of component
             const $el =$.create('div', Component.getClsName);
             const component = new Component($el); // component -> class child from excel component
-            // debug
-            // if (component.name) {
-            //     window['c' + component.name] = component;
-            // }
             $el.html(component.toHTML());
             $root.append($el);
             return component; // return instans from build class

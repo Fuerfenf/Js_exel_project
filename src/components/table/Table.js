@@ -1,8 +1,9 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 import {$} from '@core/dom';
-import {createTable, shouldResize, isCell} from '@/components/table/table.template';
+import {createTable} from '@/components/table/table.template';
 import {resizingHendler} from '@/components/table/resizing';
 import {TableSelection} from '@/components/table/TableSelection';
+import {isCell, shouldResize, buildCellMatrix} from '@/components/table/table.functions';
 export {Table};
 
 class Table extends ExcelComponent {
@@ -31,12 +32,9 @@ class Table extends ExcelComponent {
         } else if (isCell(event)) {
             const $target = $(event.target);
             if (event.shiftKey) {
-                const saveTargetCell = $target.getId(true);
-                const saveCurrentCell = this.selectionType.currentCell.getId(true);
-                const groupCols = rangeCols(saveCurrentCell.col, saveTargetCell.col);
-                console.log('curr', saveCurrentCell);
-                console.log('targ', saveTargetCell);
-                console.log(groupCols);
+                const $cells = buildCellMatrix($target, this.selectionType.currentCell)
+                    .map((id) => this.$root.selectOne(`[data-id="${id}"]`));
+                this.selectionType.selectGroup($cells);
             } else {
                 this.selectionType.select($target);
             }
@@ -44,14 +42,3 @@ class Table extends ExcelComponent {
     }
 }
 
-// local functions
-function rangeCols(startCell, endCell) {
-    if (startCell > endCell) {
-        [endCell, startCell] = [startCell, endCell];
-    }
-    return new Array(endCell-startCell+1)
-        .fill('')
-        .map((__, index) => {
-            return startCell + index;
-        });
-}

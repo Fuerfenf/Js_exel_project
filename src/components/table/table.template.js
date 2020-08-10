@@ -1,4 +1,4 @@
-export {shouldResize, createTable, isCell};
+export {createTable};
 // base const
 const CODES = {
     A: 65,
@@ -63,10 +63,3 @@ function createTable(rCounter = 25) {
     return rows.join('');
 }
 
-// helper functions for table
-function shouldResize(event) {
-    return event.target.dataset.resize;
-}
-function isCell(event) {
-    return event.target.dataset.type === 'cell';
-}
