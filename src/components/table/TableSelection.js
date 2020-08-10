@@ -12,7 +12,7 @@ class TableSelection {
         this.clear();
         this.cellgroup.push($domtree);
         this.currentCell = $domtree;
-        $domtree.addClass(TableSelection.className);
+        $domtree.focusOn().addClass(TableSelection.className);
     }
     clear() {
         this.cellgroup.forEach(($cell) => $cell.removeClass(TableSelection.className));

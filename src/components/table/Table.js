@@ -3,7 +3,7 @@ import {$} from '@core/dom';
 import {createTable} from '@/components/table/table.template';
 import {resizingHendler} from '@/components/table/resizing';
 import {TableSelection} from '@/components/table/TableSelection';
-import {isCell, shouldResize, buildCellMatrix} from '@/components/table/table.functions';
+import {isCell, shouldResize, buildCellMatrix, nextSelector} from '@/components/table/table.functions';
 export {Table};
 
 class Table extends ExcelComponent {
@@ -12,7 +12,7 @@ class Table extends ExcelComponent {
     }
     constructor($root) {
         super($root, {
-            listeners: ['mousedown'],
+            listeners: ['mousedown', 'keydown'],
         });
     }
     toHTML() {
@@ -40,5 +40,20 @@ class Table extends ExcelComponent {
             }
         }
     }
+    onKeydown(event) {
+        const keys = [
+            'Enter',
+            'Tab',
+            'ShiftLeft',
+            'AltLeft',
+            'ArrowUp', 'ArrowDown', 'ArrowRight', 'ArrowLeft',
+        ];
+        const {key} =event;
+        if (keys.includes(key) && !event.shiftKey) { // without shift next down sell if shift in cell next line
+            event.preventDefault(); // override default behavior
+            const idCell = this.selectionType.currentCell.getId(true);
+            const $next = this.$root.selectOne(nextSelector(key, idCell));
+            this.selectionType.select($next);
+        }
+    }
 }
-

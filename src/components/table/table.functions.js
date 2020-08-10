@@ -1,5 +1,5 @@
 // helper functions for table
-export {shouldResize, isCell, buildCellMatrix};
+export {shouldResize, isCell, buildCellMatrix, nextSelector};
 
 function shouldResize(event) {
     return event.target.dataset.resize;
@@ -29,4 +29,25 @@ function buildCellMatrix($saveTargetCell, $saveCurrentCell) {
         groupRows.forEach((row) => pack.push(`${row}:${col}`));
         return pack;
     }, []);
+}
+
+function nextSelector( key, {row, col}) {
+    const MINIMAL_VALUE = 0;
+    switch (key) {
+        case 'Enter':
+        case 'ArrowDown':
+            row++;
+            break;
+        case 'Tab':
+        case 'ArrowRight':
+            col++;
+            break;
+        case 'ArrowLeft':
+            col = col - 1 < MINIMAL_VALUE ? MINIMAL_VALUE : col - 1;
+            break;
+        case 'ArrowUp':
+            row = row - 1 < MINIMAL_VALUE ? MINIMAL_VALUE : row - 1;
+            break;
+    }
+    return `[data-id="${row}:${col}"]`;
 }

@@ -65,6 +65,10 @@ class Dom {
     removeClass(className) {
         return this.$domEl.classList.remove(className);
     }
+    focusOn() {
+        this.$domEl.focus();
+        return this;
+    }
     css(styles={}) { // method for changing params width/height and others take obj
         // best practice for iteration in object Object.keys(obj), because in cycle FOR IN also takes prototype params its wrong way (for example methods)
         Object
