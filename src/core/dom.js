@@ -40,11 +40,30 @@ class Dom {
     getCordinates() {
         return this.$domEl.getBoundingClientRect();
     }
+    getId(parse) {
+        if (parse) {
+            const parsedId = this.getId().split(':');
+            return {
+                row: +parsedId[0],
+                id: +parsedId[1],
+            };
+        }
+        return this.dataIndex.id;
+    }
     get dataIndex() {
         return this.$domEl.dataset;
     }
+    selectOne(selector) {
+        return $(this.$domEl.querySelector(selector));
+    }
     selectAll(selector) {
         return this.$domEl.querySelectorAll(selector);
+    }
+    addClass(className) {
+        return this.$domEl.classList.add(className);
+    }
+    removeClass(className) {
+        return this.$domEl.classList.remove(className);
     }
     css(styles={}) { // method for changing params width/height and others take obj
         // best practice for iteration in object Object.keys(obj), because in cycle FOR IN also takes prototype params its wrong way (for example methods)

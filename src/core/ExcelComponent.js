@@ -1,10 +1,14 @@
 import {DOMListener} from '@core/DOMListener';
 
-export class ExcelComponent extends DOMListener {
+export {ExcelComponent};
+
+class ExcelComponent extends DOMListener {
     constructor($root, options = {}) {
         super($root, options.listeners);
         this.name = options.name || '';
+        this.prepare();
     }
+    prepare() {} // prepare called early then init
     toHTML() { // return component pattern
         return '';
     }

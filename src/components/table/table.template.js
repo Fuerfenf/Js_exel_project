@@ -1,3 +1,4 @@
+export {shouldResize, createTable, isCell};
 // base const
 const CODES = {
     A: 65,
@@ -5,8 +6,18 @@ const CODES = {
 };
 
 
-function buildCell(__, colIndex) {
-    return `<div class="cell" contenteditable="" data-col="${colIndex}"></div>`;
+function buildCell(row) {
+    return function(__, colIndex) {
+        return `
+            <div
+             class="cell" 
+             contenteditable
+             data-type="cell"
+             data-col="${colIndex}"
+             data-row="${row}"
+             data-id="${row}:${colIndex}"
+             ></div>`;
+    };
 }
 function buildColumn(col, index) {
     return `<div class="column" data-type="resizable" data-col="${index}">
@@ -33,7 +44,7 @@ function buildChr(el, index) {
 
 // exporting functions
 
-export function createTable(rCounter = 25) {
+function createTable(rCounter = 25) {
     const clmCounter = CODES.Z - CODES.A + 1;
     const rows = [];
     const cols = new Array(clmCounter)
@@ -45,7 +56,7 @@ export function createTable(rCounter = 25) {
     for (let i = 0; i <=rCounter; i++) {
         const cell = new Array(clmCounter)
             .fill('')
-            .map(buildCell)
+            .map(buildCell(i))
             .join('');
         rows.push(buildRow(cell, i+1));
     }
@@ -53,6 +64,9 @@ export function createTable(rCounter = 25) {
 }
 
 // helper functions for table
-export function shouldResize(event) {
+function shouldResize(event) {
     return event.target.dataset.resize;
+}
+function isCell(event) {
+    return event.target.dataset.type === 'cell';
 }

@@ -1,6 +1,7 @@
 import {$} from '@core/dom';
+export {Excel};
 
-export class Excel {
+class Excel {
     constructor(selector, options) {
         this.$el = $(selector); // marks $ DOM node
         this.components = options.components || [];// in base free array

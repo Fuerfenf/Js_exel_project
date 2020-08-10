@@ -1,4 +1,4 @@
-import {$} from "@core/dom";
+import {$} from '@core/dom';
 
 export function resizingHendler($root, event) {
     const $target = $(event.target);
