@@ -39,6 +39,7 @@ function nextSelector( key, {row, col}) {
             row++;
             break;
         case 'Tab':
+            break;
         case 'ArrowRight':
             col++;
             break;

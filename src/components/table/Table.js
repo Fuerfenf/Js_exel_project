@@ -13,7 +13,7 @@ class Table extends ExcelComponent {
     constructor($root, options) {
         super($root, {
             name: 'Table',
-            listeners: ['mousedown', 'keydown'],
+            listeners: ['mousedown', 'keydown', 'input'],
             ...options,
         });
     }
@@ -25,10 +25,12 @@ class Table extends ExcelComponent {
     }
     init() {
         super.init(); // need for Domlisteners
-        const $cell = this.$root.selectOne('[data-id="0:0"]');
-        this.selectionType.select($cell);
-        this.observer.subscribe('its working', (text) => { // its working flag and its will be same in formul
+        this.selectCell(this.$root.selectOne('[data-id="0:0"]'));
+        this.$onSubscribe('formula:input', (text) => { //  flag and its will be same in formul
             this.selectionType.currentCell.text(text);
+        });
+        this.$onSubscribe('formula:done', () => {
+            this.selectionType.currentCell.focusOn();
         });
     }
     onMousedown(event) {
@@ -58,7 +60,14 @@ class Table extends ExcelComponent {
             event.preventDefault(); // override default behavior
             const idCell = this.selectionType.currentCell.getId(true);
             const $next = this.$root.selectOne(nextSelector(key, idCell));
-            this.selectionType.select($next);
+            this.selectCell($next);
         }
+    }
+    onInput(event) {
+        this.$observe('table:input', $(event.target));
+    }
+    selectCell($cell) {
+        this.selectionType.select($cell);
+        this.$observe('table:select', $cell);
     }
 }

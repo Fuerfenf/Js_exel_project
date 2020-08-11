@@ -1,4 +1,5 @@
 import {ExcelComponent} from '@core/ExcelComponent';
+import {$} from '@core/dom';
 export {Formula};
 
 class Formula extends ExcelComponent {
@@ -8,22 +9,34 @@ class Formula extends ExcelComponent {
     constructor($root, options) {
         super($root, {
             name: 'Formula', // flag for marking problems where is mistake
-            listeners: ['input', 'click'], // list of listeners for addit
+            listeners: ['input', 'keydown'], // list of listeners for addit
             ...options,
+        });
+    }
+    init() {
+        super.init();
+        this.$formula = this.$root.selectOne('#formula_field');
+        this.$onSubscribe('table:select', ($cell) => {
+            this.$formula.text($cell.text());
+        });
+        this.$onSubscribe('table:input', ($cell) => {
+            this.$formula.text($cell.text());
         });
     }
     toHTML() {
         return `
          <div class="fx_info">fx</div>
-            <div class="input_field" contenteditable="" spellcheck="false"></div>
+            <div id="formula_field" class="input_field" contenteditable="" spellcheck="false"></div>
         `;
     }
     onInput(event) { // method for input
-        // console.log('Formula: onInput', event.target.textContent.trim());
-        const text = event.target.textContent.trim();
-        this.observer.emit('its working', text);
+        this.$observe('formula:input', $(event.target).text());
     }
-    onClick() {
-        console.log('test');
+    onKeydown(event) {
+        const keys = ['Enter', 'Tab'];
+        if (keys.includes(event.key)) {
+            event.preventDefault();
+            this.$observe('formula:done');
+        }
     }
 }

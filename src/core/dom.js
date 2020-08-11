@@ -14,7 +14,14 @@ class Dom {
         return this;
     }
     text(text) {
-        this.$domEl.textContent = text;
+        if (typeof text ==='string') {
+            this.$domEl.textContent = text;
+            return this;
+        }
+        if (this.$domEl.tagName.toLowerCase() === 'input') {
+            return this.$domEl.value.trim();
+        }
+        return this.$domEl.textContent.trim();
     }
     set(eventType, callback) { // method for event analog addEventList
         this.$domEl.addEventListener(eventType, callback);
