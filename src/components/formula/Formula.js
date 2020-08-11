@@ -1,13 +1,15 @@
 import {ExcelComponent} from '@core/ExcelComponent';
+export {Formula};
 
-export class Formula extends ExcelComponent {
+class Formula extends ExcelComponent {
     static get getClsName() {
         return 'excel__formula';
     }
-    constructor($root) {
+    constructor($root, options) {
         super($root, {
             name: 'Formula', // flag for marking problems where is mistake
             listeners: ['input', 'click'], // list of listeners for addit
+            ...options,
         });
     }
     toHTML() {
@@ -17,7 +19,9 @@ export class Formula extends ExcelComponent {
         `;
     }
     onInput(event) { // method for input
-        console.log('Formula: onInput', event.target.textContent.trim());
+        // console.log('Formula: onInput', event.target.textContent.trim());
+        const text = event.target.textContent.trim();
+        this.observer.emit('its working', text);
     }
     onClick() {
         console.log('test');

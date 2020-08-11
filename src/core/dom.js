@@ -13,6 +13,9 @@ class Dom {
         this.html('');
         return this;
     }
+    text(text) {
+        this.$domEl.textContent = text;
+    }
     set(eventType, callback) { // method for event analog addEventList
         this.$domEl.addEventListener(eventType, callback);
     }

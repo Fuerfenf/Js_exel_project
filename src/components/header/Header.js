@@ -4,6 +4,12 @@ export class Header extends ExcelComponent {
     static get getClsName() {
         return 'excel__header';
     }
+    constructor($root, options) {
+        super($root, {
+            name: 'Header',
+            ...options,
+        });
+    }
     // static className = 'excel__header'; // this way in webpak dont work (in this moment dont know about it)
 
     toHTML() {

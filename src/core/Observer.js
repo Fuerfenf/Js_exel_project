@@ -6,7 +6,7 @@ class Observer {
     }
     // dispatch, trigger
     // notificate listeners  (formul:done)
-    emmit(event, ...args) {
+    emit(event, ...args) {
         if (!Array.isArray(this.listeners[event])) {
             return false;
         }
@@ -26,6 +26,3 @@ class Observer {
     }
 
 }
-
-const emitter = new Observer();
-emitter.subscribe();

@@ -10,9 +10,11 @@ class Table extends ExcelComponent {
     static get getClsName() {
         return 'excel__table';
     }
-    constructor($root) {
+    constructor($root, options) {
         super($root, {
+            name: 'Table',
             listeners: ['mousedown', 'keydown'],
+            ...options,
         });
     }
     toHTML() {
@@ -25,6 +27,9 @@ class Table extends ExcelComponent {
         super.init(); // need for Domlisteners
         const $cell = this.$root.selectOne('[data-id="0:0"]');
         this.selectionType.select($cell);
+        this.observer.subscribe('its working', (text) => { // its working flag and its will be same in formul
+            this.selectionType.currentCell.text(text);
+        });
     }
     onMousedown(event) {
         if (shouldResize(event)) {

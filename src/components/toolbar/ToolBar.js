@@ -9,6 +9,7 @@ class ToolBar extends ExcelComponent {
         super($root, {
             name: 'Toolbar',
             listeners: ['click'],
+            ...options
         });
     }
 
