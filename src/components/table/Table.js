@@ -10,6 +10,7 @@ class Table extends ExcelComponent {
     static get getClsName() {
         return 'excel__table';
     }
+
     constructor($root, options) {
         super($root, {
             name: 'Table',
@@ -17,12 +18,15 @@ class Table extends ExcelComponent {
             ...options,
         });
     }
+
     toHTML() {
         return createTable(15);
     }
+
     prepare() {
         this.selectionType = new TableSelection();
     }
+
     init() {
         super.init(); // need for Domlisteners
         this.selectCell(this.$root.selectOne('[data-id="0:0"]'));
@@ -32,7 +36,16 @@ class Table extends ExcelComponent {
         this.$onSubscribe('formula:done', () => {
             this.selectionType.currentCell.focusOn();
         });
+        this.$subscribe((state) => {
+            console.log('TableState', state);
+        });
     }
+
+    selectCell($cell) {
+        this.selectionType.select($cell);
+        this.$observe('table:select', $cell);
+    }
+
     onMousedown(event) {
         if (shouldResize(event)) {
             resizingHendler(this.$root, event);
@@ -43,10 +56,11 @@ class Table extends ExcelComponent {
                     .map((id) => this.$root.selectOne(`[data-id="${id}"]`));
                 this.selectionType.selectGroup($cells);
             } else {
-                this.selectionType.select($target);
+                this.selectCell($target);
             }
         }
     }
+
     onKeydown(event) {
         const keys = [
             'Enter',
@@ -55,7 +69,7 @@ class Table extends ExcelComponent {
             'AltLeft',
             'ArrowUp', 'ArrowDown', 'ArrowRight', 'ArrowLeft',
         ];
-        const {key} =event;
+        const {key} = event;
         if (keys.includes(key) && !event.shiftKey) { // without shift next down sell if shift in cell next line
             event.preventDefault(); // override default behavior
             const idCell = this.selectionType.currentCell.getId(true);
@@ -63,11 +77,8 @@ class Table extends ExcelComponent {
             this.selectCell($next);
         }
     }
+
     onInput(event) {
         this.$observe('table:input', $(event.target));
-    }
-    selectCell($cell) {
-        this.selectionType.select($cell);
-        this.$observe('table:select', $cell);
     }
 }

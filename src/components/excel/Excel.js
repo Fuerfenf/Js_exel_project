@@ -6,11 +6,15 @@ class Excel {
     constructor(selector, options) {
         this.$el = $(selector); // marks $ DOM node
         this.components = options.components || [];// in base free array
+        this.store = options.store;
         this.observer = new Observer(); // objext obsorver for exel (central object)
     }
     getRoot() { // return base DOM node for excel
         const $root = $.create('div', 'excel'); // tag and bs tag class
-        const compOptions = {observer: this.observer};
+        const compOptions = {
+            observer: this.observer,
+            store: this.store,
+        };
         this.components = this.components.map((Component) => { // get access to everyone of component
             const $el = $.create('div', Component.getClsName);
             const component = new Component($el, compOptions); // component -> class child from excel component
