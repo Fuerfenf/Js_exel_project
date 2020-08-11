@@ -1,6 +1,7 @@
 import {ExcelComponent} from '@core/ExcelComponent';
+export {ToolBar};
 
-export class ToolBar extends ExcelComponent {
+class ToolBar extends ExcelComponent {
     static get getClsName() {
         return 'excel__toolbar';
     }
@@ -8,6 +9,7 @@ export class ToolBar extends ExcelComponent {
         super($root, {
             name: 'Toolbar',
             listeners: ['click'],
+            ...options
         });
     }
 
