@@ -1,5 +1,5 @@
 // Pure functions
-export {capitalize};
+export {capitalize, storage};
 
 function capitalize(innerString) {
     if (typeof innerString !== 'string') {
@@ -8,3 +8,10 @@ function capitalize(innerString) {
     return innerString.charAt(0).toUpperCase() + innerString.slice(1);
 }
 
+function storage(data= null, key) { // function for save
+    if (!data) {
+        return JSON.parse(localStorage.getItem(key));
+    }
+    localStorage.setItem(key, JSON.stringify(data));
+
+}

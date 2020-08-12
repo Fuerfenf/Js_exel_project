@@ -5,10 +5,13 @@ import {ToolBar} from '@/components/toolbar/ToolBar';
 import {Formula} from '@/components/formula/Formula';
 import {Table} from '@/components/table/Table';
 import {rootReducer} from '@/redux/rootReducer';
+import {storage} from '@core/utils';
 import './scss/index.scss';
 
-const store = createStore(rootReducer, {
-    colState: {},
+const key = 'excel-state';
+const store = createStore(rootReducer, storage(null, key));
+store.subscribe((state) => { // used for save state local
+    storage(state, key);
 });
 const excel = new Excel('#app', {
     components: [Header, ToolBar, Formula, Table],
