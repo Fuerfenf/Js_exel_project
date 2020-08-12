@@ -3,7 +3,7 @@ import {$} from '@core/dom';
 export function resizingHendler($root, event) {
     return new Promise((resolve) => {
         const $target = $(event.target);
-        const $parent = $target.closest('[data-type="resizable"]');
+        const $parent = $target.closest('[data-flag="resizable"]');
         const coordinates = $parent.getCordinates();
         const movetype = $target.dataIndex.resize;
         let pxvalue = null;
@@ -14,7 +14,6 @@ export function resizingHendler($root, event) {
             zIndex: 1000,
             [sidePos]: '-5000px',
         });
-        const dumpcells = $root.selectAll(`[data-col="${$parent.dataIndex.col}"]`);
         document.onmousemove = (ev) => {
             if (movetype === 'col') {
                 delta = ev.pageX - coordinates.right;
@@ -31,14 +30,15 @@ export function resizingHendler($root, event) {
             document.onmouseup = null;
             if (movetype === 'col') {
                 $parent.css({width: pxvalue + 'px'});
-                dumpcells.forEach((el) => el.style.width = pxvalue + 'px');
+                $root.selectAll(`[data-col="${$parent.dataIndex.col}"]`)
+                .forEach((el) => el.style.width = pxvalue + 'px');
             } else {
                 $parent.css({height: pxvalue + 'px'});
-                dumpcells.forEach((el) => el.style.height = pxvalue + 'px');
             }
             resolve({
-                pxvalue,
-                id: movetype === 'col' ? $parent.dataIndex.col : null,
+                value: pxvalue,
+                type: movetype,
+                id: $parent.dataIndex[movetype],
             });
             $target.css({
                 opacity: 0,

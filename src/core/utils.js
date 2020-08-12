@@ -8,7 +8,7 @@ function capitalize(innerString) {
     return innerString.charAt(0).toUpperCase() + innerString.slice(1);
 }
 
-function storage(data= null, key) { // function for save
+function storage(key, data= null) { // function for save
     if (!data) {
         return JSON.parse(localStorage.getItem(key));
     }

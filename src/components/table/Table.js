@@ -37,9 +37,6 @@ class Table extends ExcelComponent {
         this.$onSubscribe('formula:done', () => {
             this.selectionType.currentCell.focusOn();
         });
-        // this.$subscribe((state) => {
-        //     console.log('TableState', state);
-        // });
     }
 
     selectCell($cell) {
@@ -50,7 +47,6 @@ class Table extends ExcelComponent {
         try {
             const data = await resizingHendler(this.$root, event);
             this.$dispatch(actions.tableResize(data));
-            console.log('resize data', data);
         } catch (exept) {
             console.warn('Resize error', exept.message);
         }
