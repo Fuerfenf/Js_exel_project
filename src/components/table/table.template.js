@@ -54,7 +54,13 @@ function buildChr(el, index) {
     return String.fromCharCode(CODES.A + index);
 }
 function getResWidth(state, index) {
-    return (state[index] || BASE_WIDTH) + 'px';
+    let out = null;
+    try {
+        out = state[index];
+    } catch (e) {
+        out = BASE_WIDTH;
+    }
+    return out + 'px';
 }
 function withWidthFrom(state) {
     return function(col, index) {
@@ -86,4 +92,3 @@ function createTable(rCounter = 25, state={}) {
     }
     return rows.join('');
 }
-
