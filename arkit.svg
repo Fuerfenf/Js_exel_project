@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="730px" preserveAspectRatio="none" style="width:689px;height:730px;" version="1.1" viewBox="0 0 689 730" width="689px" zoomAndPan="magnify"><defs/><g><!--MD5=[a6f11bb19cee6b13000111f5ad685e8b]
+cluster Dependencies--><path d="M179.012,24.263 L273.012,24.263 A4.5,4.5 0 0 1 276.012,27.263 L283.012,44.7474 L358.012,44.7474 A3,3 0 0 1 361.012,47.7474 L361.012,257.263 A3,3 0 0 1 358.012,260.263 L179.012,260.263 A3,3 0 0 1 176.012,257.263 L176.012,27.263 A3,3 0 0 1 179.012,24.263 " fill="#FFFFFF" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="176.012" x2="283.012" y1="44.7474" y2="44.7474"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="94" x="180.012" y="38.2689">Dependencies</text><!--MD5=[ad1e0fa0925579e6b427645758f5154c]
+entity clean-webpack-plugin--><rect fill="#F8F8F8" height="34.4844" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="145" x="196.012" y="57.263"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="191.012" y="62.263"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="191.012" y="81.7474"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="125" x="206.012" y="79.2689">clean-webpack-plugin</text><!--MD5=[e6ca2fd0422e6124984a5b20074bd1b5]
+entity copy-webpack-plugin--><rect fill="#F8F8F8" height="34.4844" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="142" x="197.512" y="108.263"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="192.512" y="113.263"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="192.512" y="132.7474"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="122" x="207.512" y="130.2689">copy-webpack-plugin</text><!--MD5=[6f4bd952f35718eedacdcb5a5d3e4e2c]
+entity html-webpack-plugin--><rect fill="#F8F8F8" height="34.4844" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="139" x="199.012" y="159.263"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="194.012" y="164.263"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="194.012" y="183.7474"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="119" x="209.012" y="181.2689">html-webpack-plugin</text><!--MD5=[fe1e37361c20161bb802583e5b2a7b71]
+entity mini-css-extract-plugin--><rect fill="#F8F8F8" height="34.4844" rx="3" ry="3" style="stroke: #383838; stroke-width: 1.0;" width="153" x="192.012" y="210.263"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="187.012" y="215.263"/><rect fill="#F8F8F8" height="5" style="stroke: #383838; stroke-width: 1.0;" width="10" x="187.012" y="234.7474"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="133" x="202.012" y="232.2689">mini-css-extract-plugin</text><ellipse cx="562.4176" cy="544.505" fill="#F8F8F8" rx="33.4056" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="43" x="540.9176" y="548.2472">actions</text><ellipse cx="93.2305" cy="293.4067" fill="#F8F8F8" rx="56.2187" ry="13.6437" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="78" x="54.2305" y="297.1489">createStore</text><ellipse cx="93.0179" cy="337.505" fill="#F8F8F8" rx="23.5061" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="29" x="78.5179" y="341.2472">dom</text><!--MD5=[24e39858f98916e8c8821da0cb31e2d2]
+entity _DOMListener--><rect fill="#F8F8F8" height="34.4844" rx="3" ry="3" style="stroke: #000000; stroke-width: 0.5;" width="104" x="41.0118" y="367.263"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="84" x="51.0118" y="389.2689">DOMListener</text><ellipse cx="268.7252" cy="426.505" fill="#F8F8F8" rx="24.2132" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="30" x="253.7252" y="430.2472">Excel</text><ellipse cx="268.2803" cy="293.0167" fill="#F8F8F8" rx="69.2683" ry="16.2537" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="111" x="212.7803" y="296.7588">ExcelComponent</text><ellipse cx="268.5389" cy="469.505" fill="#F8F8F8" rx="35.5269" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="46" x="245.5389" y="473.2472">Formula</text><!--MD5=[f9d3dab21c4380625a4a5453aa0f93a2]
+entity _Header--><rect fill="#F8F8F8" height="34.4844" rx="3" ry="3" style="stroke: #000000; stroke-width: 0.5;" width="60" x="238.512" y="499.263"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="40" x="248.512" y="521.2689">Header</text><ellipse cx="92.9382" cy="625.5051" fill="#F8F8F8" rx="45.4264" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="62.9382" y="629.2473">initialState</text><ellipse cx="268.5034" cy="340.505" fill="#F8F8F8" rx="31.9914" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="41" x="248.0034" y="344.2472">modul</text><ellipse cx="268.4384" cy="383.505" fill="#F8F8F8" rx="45.4264" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="60" x="238.4384" y="387.2472">Observer</text><ellipse cx="436.8318" cy="496.505" fill="#F8F8F8" rx="34.8198" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="45" x="414.3318" y="500.2472">resizing</text><ellipse cx="93.0093" cy="582.505" fill="#F8F8F8" rx="52.4975" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="58.0093" y="586.2472">rootReducer</text><ellipse cx="92.861" cy="539.505" fill="#F8F8F8" rx="17.8492" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="21" x="82.361" y="543.2472">src</text><ellipse cx="268.4323" cy="563.505" fill="#F8F8F8" rx="24.9203" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="252.9323" y="567.2472">Table</text><ellipse cx="436.8464" cy="540.4299" fill="#F8F8F8" rx="58.8344" ry="14.1669" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="85" x="394.3464" y="544.1721">table.functions</text><ellipse cx="436.8395" cy="585.1286" fill="#F8F8F8" rx="57.3275" ry="13.8655" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="81" x="396.3395" y="588.8708">table.template</text><ellipse cx="436.8464" cy="630.43" fill="#F8F8F8" rx="58.8344" ry="14.1669" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="85" x="394.3464" y="634.1722">TableSelection</text><ellipse cx="268.3318" cy="606.5051" fill="#F8F8F8" rx="34.8198" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="45" x="245.8318" y="610.2473">ToolBar</text><ellipse cx="653.9323" cy="607.5051" fill="#F8F8F8" rx="24.9203" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="31" x="638.4323" y="611.2473">types</text><ellipse cx="437.0181" cy="293.505" fill="#F8F8F8" rx="23.5061" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="29" x="422.5181" y="297.2472">utils</text><ellipse cx="92.968" cy="151.3542" fill="#F8F8F8" rx="65.9562" ry="15.5912" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="103" x="41.468" y="155.0964">webpack.config</text><!--MD5=[69368988b291678c7b369865108475bb]
+link actions to types--><path d="M579.513,555.526 C594.771,566.267 617.763,582.451 633.96,593.8522 " fill="none" id="actions-&gt;types" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="638.336,596.9327,633.2797,588.4809,634.2476,594.0543,628.6742,595.0222,638.336,596.9327" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[dea7fd9873eafa355d382691e642850f]
+link rootReducer to types--><path d="M135.241,590.1308 C143.914,593.3498 152.421,597.8825 159.012,604.2631 C167.197,612.1869 159.049,621.2312 168.012,628.2631 C283.036,718.5072 351.293,674.0275 496.012,653.2631 C544.117,646.3609 598.052,628.1363 628.535,616.8076 " fill="none" id="rootReducer-&gt;types" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="633.585,614.9143,623.7535,614.3293,628.9034,616.67,626.5627,621.8199,633.585,614.9143" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[d6922e76a3ac01890a04477a15f8a1ee]
+link <b>src</b> to Excel--><path d="M100.3546,527.033 C111.32,507.178 135.779,468.151 168.012,448.263 C189.526,434.989 218.022,429.679 239.004,427.578 " fill="none" id="&lt;b&gt;src&lt;/b&gt;-&gt;Excel" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="244.167,427.11,234.8426,423.9391,239.1874,427.5615,235.565,431.9064,244.167,427.11" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[50d12ff730e70b6a0d62e0b79ffbe45c]
+link <b>src</b> to Formula--><path d="M105.8205,529.669 C119.828,518.766 144.282,501.199 168.012,491.263 C187.552,483.082 210.582,477.741 229.562,474.373 " fill="none" id="&lt;b&gt;src&lt;/b&gt;-&gt;Formula" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="234.801,473.474,225.254,471.0542,229.8731,474.3199,226.6074,478.9389,234.801,473.474" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[227bdbdf193d7efbda047ff1ee7d8326]
+link <b>src</b> to _Header--><path d="M110.964,537.016 C139.165,533.277 196.255,525.709 233.144,520.819 " fill="none" id="&lt;b&gt;src&lt;/b&gt;-&gt;_Header" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="238.434,520.118,228.9864,517.3354,233.4774,520.7751,230.0377,525.266,238.434,520.118" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[ec225ae6d393e7a50504d398fdbc1cee]
+link <b>src</b> to initialState--><path d="M74.8448,539.864 C54.8509,541.645 23.7879,547.99 10.5118,569.763 C4.4961,579.629 4.4961,585.8969 10.5118,595.7631 C17.9877,608.0239 31.1693,615.2535 44.8317,619.4954 " fill="none" id="&lt;b&gt;src&lt;/b&gt;-&gt;initialState" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="49.8773,620.9268,42.3108,614.6222,45.0671,619.5621,40.1273,622.3184,49.8773,620.9268" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[cfa385694bb39464cd2b8bed45bd6c75]
+link <b>src</b> to rootReducer--><path d="M93.0118,552.344 C93.0118,556.198 93.0118,560.052 93.0118,563.906 " fill="none" id="&lt;b&gt;src&lt;/b&gt;-&gt;rootReducer" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="93.0118,569.162,97.0118,560.162,93.0118,564.162,89.0118,560.162,93.0118,569.162" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[93a0dc9ce1478d3f1830f5881d3aa857]
+link <b>src</b> to Table--><path d="M110.964,541.608 C140.709,545.723 202.594,554.283 239.014,559.321 " fill="none" id="&lt;b&gt;src&lt;/b&gt;-&gt;Table" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="244.196,560.038,235.8296,554.8415,239.2432,559.3523,234.7325,562.7659,244.196,560.038" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[6e0336f858ffe79dbdd8f7e9ab5459db]
+link <b>src</b> to ToolBar--><path d="M111.037,540.969 C125.526,543.273 146.001,548.668 159.012,561.263 C167.197,569.187 159.373,577.837 168.012,585.2631 C184.551,599.4793 208.297,604.8655 228.443,606.6331 " fill="none" id="&lt;b&gt;src&lt;/b&gt;-&gt;ToolBar" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="233.481,607.0077,224.803,602.3502,228.4948,606.6363,224.2087,610.3281,233.481,607.0077" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[25988f3a38c5e471e0980dca5effa848]
+link Table to actions--><path d="M293.317,565.365 C316.157,565.956 349.915,562.838 369.012,542.263 C389.451,520.242 355.397,495.044 378.012,475.263 C417.487,440.736 447.825,454.565 496.012,475.263 C520.427,485.75 540.023,510.305 551.215,527.106 " fill="none" id="Table-&gt;actions" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="554.145,531.621,552.5995,521.8942,551.4225,527.4272,545.8894,526.2502,554.145,531.621" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[4644145b4dcafc846e3988e770465d37]
+link Table to resizing--><path d="M293.637,564.372 C315.746,564.087 348.126,560.216 369.012,542.263 C377.651,534.837 369.972,526.334 378.012,518.263 C384.243,512.008 392.432,507.503 400.685,504.269 " fill="none" id="Table-&gt;resizing" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="405.816,502.415,395.9922,501.7128,401.1138,504.1148,398.7118,509.2363,405.816,502.415" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[ccbd4ebd7a3e791f7fd6cb1a93aec28e]
+link Table to table.functions--><path d="M293.014,560.017 C315.639,556.891 350.708,552.047 380.454,547.938 " fill="none" id="Table-&gt;table.functions" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="385.559,547.232,376.0962,544.5014,380.606,547.9163,377.1911,552.4261,385.559,547.232" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[19cd55a7355169a817a9c6f366839b4a]
+link Table to table.template--><path d="M293.014,566.369 C315.724,569.369 350.971,574.026 380.788,577.966 " fill="none" id="Table-&gt;table.template" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="385.905,578.642,377.5073,573.4963,380.9482,577.9863,376.4582,581.4272,385.905,578.642" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[c2105247f975d958cecb80abfd791e67]
+link Table to TableSelection--><path d="M293.598,562.498 C315.68,563.077 348.041,567.321 369.012,585.2631 C377.353,592.3991 370.21,600.5418 378.012,608.2631 C381.88,612.091 386.481,615.2649 391.374,617.8938 " fill="none" id="Table-&gt;TableSelection" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="395.938,620.1581,389.6544,612.5741,391.4592,617.9354,386.098,619.7402,395.938,620.1581" style="stroke: #000000; stroke-width: 0.5;"/><!--MD5=[6a38cdf625b775b0dae1e4121938e35c]
+link <b>webpack.config</b> to clean-webpack-plugin--><path d="M111.42,136.235 C125.74,124.591 147.025,108.872 168.012,99.263 C175.254,95.947 183.002,93.027 190.858,90.466 " fill="none" id="&lt;b&gt;webpack.config&lt;/b&gt;-&gt;clean-webpack-plugin" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="195.76,88.917,185.9729,87.8161,190.9926,90.4242,188.3844,95.4439,195.76,88.917" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[21017ee04eb4ebfc7ac3dfaaf563e8d3]
+link <b>webpack.config</b> to copy-webpack-plugin--><path d="M149.385,142.965 C162.987,140.927 177.779,138.71 192.146,136.557 " fill="none" id="&lt;b&gt;webpack.config&lt;/b&gt;-&gt;copy-webpack-plugin" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="197.417,135.767,187.9233,133.1459,192.4723,136.5085,189.1097,141.0575,197.417,135.767" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[c0bba77861e9da2ff8d90ab4002b0c13]
+link <b>webpack.config</b> to html-webpack-plugin--><path d="M149.863,159.311 C163.925,161.337 179.234,163.543 194.016,165.673 " fill="none" id="&lt;b&gt;webpack.config&lt;/b&gt;-&gt;html-webpack-plugin" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="199.006,166.392,190.6683,161.1496,194.0571,165.6791,189.5276,169.0679,199.006,166.392" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[1e170f36608f9a28b877c1365f648a6e]
+link <b>webpack.config</b> to mini-css-extract-plugin--><path d="M112.43,166.315 C126.799,177.389 147.67,192.059 168.012,201.263 C174.039,203.99 180.407,206.473 186.889,208.724 " fill="none" id="&lt;b&gt;webpack.config&lt;/b&gt;-&gt;mini-css-extract-plugin" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="191.865,210.401,184.614,203.7359,187.1269,208.804,182.0588,211.3169,191.865,210.401" style="stroke: #000000; stroke-width: 1.0;"/><!--MD5=[95e2b5096f6e1887a20b177430e4daef]
+link <b>createStore</b> to <b>dom</b>--><!--MD5=[ff60605a0ea56c524dea8b3e71aca294]
+link <b>dom</b> to _DOMListener--><!--MD5=[185c9a028e1b885121f7e4f417baebc1]
+link <b>createStore</b> to <b>ExcelComponent</b>--><!--MD5=[b841609c6938b316c794daf57692a6c8]
+link <b>ExcelComponent</b> to <b>modul</b>--><!--MD5=[8fb711610f81b66048b57c3ce35e6186]
+link <b>modul</b> to <b>Observer</b>--><!--MD5=[4ff810bb93156cae58405ca04e456dbf]
+link <b>ExcelComponent</b> to <b>utils</b>--><script type="text/plantuml"><![CDATA[MD5=[559032c65332701a1c8d0d9800742dc6]
+@startuml
+
+scale max 1920 width
+left to right direction
+
+skinparam nodesep 17
+skinparam ranksep 33
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName Tahoma
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam dpi 150
+skinparam arrowColor black
+skinparam arrowThickness 0.5
+skinparam packageTitleAlignment left
+
+skinparam usecase {
+  borderThickness 0.5
+}
+
+skinparam rectangle {
+  borderThickness 0.5
+}
+
+skinparam component {
+  borderThickness 1
+}
+
+
+(actions)
+(<b>createStore</b>)
+(<b>dom</b>)
+rectangle "<b>DOMListener</b>" as _DOMListener
+(Excel)
+(<b>ExcelComponent</b>)
+(Formula)
+rectangle "Header" as _Header
+(initialState)
+(<b>modul</b>)
+(<b>Observer</b>)
+(resizing)
+(rootReducer)
+(<b>src</b>)
+(Table)
+(table.functions)
+(table.template)
+(TableSelection)
+(ToolBar)
+(types)
+(<b>utils</b>)
+(<b>webpack.config</b>)
+
+package "Dependencies" {
+  [clean-webpack-plugin]
+  [copy-webpack-plugin]
+  [html-webpack-plugin]
+  [mini-css-extract-plugin]
+}
+
+(actions) --> (types)
+(rootReducer) --> (types)
+(<b>src</b>) --[thickness=1]> (Excel)
+(<b>src</b>) --[thickness=1]> (Formula)
+(<b>src</b>) --[thickness=1]> _Header
+(<b>src</b>) -[thickness=1]> (initialState)
+(<b>src</b>) -[thickness=1]> (rootReducer)
+(<b>src</b>) --[thickness=1]> (Table)
+(<b>src</b>) --[thickness=1]> (ToolBar)
+(Table) ---> (actions)
+(Table) --> (resizing)
+(Table) --> (table.functions)
+(Table) --> (table.template)
+(Table) --> (TableSelection)
+(<b>webpack.config</b>) --[thickness=1]> [clean-webpack-plugin]
+(<b>webpack.config</b>) --[thickness=1]> [copy-webpack-plugin]
+(<b>webpack.config</b>) --[thickness=1]> [html-webpack-plugin]
+(<b>webpack.config</b>) --[thickness=1]> [mini-css-extract-plugin]
+
+@enduml
+
+
+' View and edit on https://arkit.pro
+]]></script></g></svg>

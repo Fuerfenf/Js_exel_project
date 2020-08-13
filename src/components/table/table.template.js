@@ -10,7 +10,14 @@ const BASE_HEIGHT = '24';
 
 function buildCell(state, row) {
     return function(__, colIndex) {
-        const width = getResWidth(state, colIndex);
+        const idCell = `${row}:${colIndex}`;
+        const width = getResWidth(state.colState, colIndex);
+        let data;
+        try {
+            data = state.dataState[idCell];
+         } catch (e) {
+            data = '';
+        };
         return `
             <div
              class="cell" 
@@ -18,9 +25,9 @@ function buildCell(state, row) {
              data-type="cell"
              data-col="${colIndex}"
              data-row="${row}"
-             data-id="${row}:${colIndex}"
+             data-id="${idCell}"
              style="width: ${width}"
-             ></div>`;
+             >${data || ''}</div>`;
     };
 }
 function buildColumn({col, index, width}) {
@@ -88,7 +95,7 @@ function createTable(rCounter = 25, state={}) {
     for (let row = 0; row <=rCounter; row++) {
         const cell = new Array(clmCounter)
             .fill('')
-            .map(buildCell(state.colState, row))
+            .map(buildCell(state, row))
             .join('');
         rows.push(buildRow(cell, row+1, state.rowState));
     }

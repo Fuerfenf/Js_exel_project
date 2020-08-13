@@ -33,6 +33,7 @@ class Table extends ExcelComponent {
         this.selectCell(this.$root.selectOne('[data-id="0:0"]'));
         this.$onSubscribe('formula:input', (text) => { //  flag and its will be same in formul
             this.selectionType.currentCell.text(text);
+            this.updateTextInStore(text);
         });
         this.$onSubscribe('formula:done', () => {
             this.selectionType.currentCell.focusOn();
@@ -83,8 +84,13 @@ class Table extends ExcelComponent {
             this.selectCell($next);
         }
     }
-
+    updateTextInStore(value) {
+        this.$dispatch(actions.changeText({
+            id: this.selectionType.currentCell.getId(),
+            value,
+        }));
+    }
     onInput(event) {
-        this.$observe('table:input', $(event.target));
+        this.updateTextInStore($(event.target).text());
     }
 }
