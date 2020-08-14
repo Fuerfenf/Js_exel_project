@@ -11,6 +11,7 @@ class Formula extends ExcelComponent {
             name: 'Formula', // flag for marking problems where is mistake
             listeners: ['input', 'keydown'], // list of listeners for addit
             ...options,
+            subscribe: ['currentText', 'colState'],
         });
     }
     init() {
@@ -19,12 +20,9 @@ class Formula extends ExcelComponent {
         this.$onSubscribe('table:select', ($cell) => {
             this.$formula.text($cell.text());
         });
-        // this.$onSubscribe('table:input', ($cell) => {
-        //     this.$formula.text($cell.text());
+        // this.$subscribe((state)=>{
+        //     this.$formula.text(state.currentText);
         // });
-        this.$subscribe((state)=>{
-            this.$formula.text(state.currentText);
-        });
     }
     toHTML() {
         return `
@@ -32,6 +30,10 @@ class Formula extends ExcelComponent {
             <div id="formula_field" class="input_field" contenteditable="" spellcheck="false"></div>
         `;
     }
+    storeChanged(changes) {
+        console.log("changes", changes);
+    }
+
     onInput(event) { // method for input
         this.$observe('formula:input', $(event.target).text());
     }

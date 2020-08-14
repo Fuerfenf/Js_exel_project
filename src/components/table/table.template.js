@@ -17,7 +17,7 @@ function buildCell(state, row) {
             data = state.dataState[idCell];
          } catch (e) {
             data = '';
-        };
+        }
         return `
             <div
              class="cell" 

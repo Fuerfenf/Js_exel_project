@@ -1,5 +1,6 @@
 import {$} from '@core/dom';
 import {Observer} from '@core/Observer';
+import {StoreSubscriber} from '@core/StoreSubscriber';
 export {Excel};
 
 class Excel {
@@ -8,6 +9,7 @@ class Excel {
         this.components = options.components || [];// in base free array
         this.store = options.store;
         this.observer = new Observer(); // objext obsorver for exel (central object)
+        this.subscriber = new StoreSubscriber(this.store);
     }
     getRoot() { // return base DOM node for excel
         const $root = $.create('div', 'excel'); // tag and bs tag class
@@ -26,9 +28,11 @@ class Excel {
     }
     render() {
         this.$el.append(this.getRoot());
+        this.subscriber.subscribeComponents(this.components);
         this.components.forEach((component) => component.init());
     }
     destroy() {
+        this.subscriber.unsubscribeComponents();
         this.components.forEach((component) => component.destroy());
     }
 }

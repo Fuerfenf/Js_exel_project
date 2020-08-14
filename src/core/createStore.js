@@ -18,7 +18,7 @@ function createStore(rootReducer, initialState = {}) { // construction function 
             listeners.forEach((listener) => listener(state));
         },
         getState() {
-            return state;
+            return JSON.parse(JSON.stringify(state)); // recursive duplicate clone
         },
     };
 }
