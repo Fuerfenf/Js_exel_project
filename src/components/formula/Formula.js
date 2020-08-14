@@ -10,8 +10,8 @@ class Formula extends ExcelComponent {
         super($root, {
             name: 'Formula', // flag for marking problems where is mistake
             listeners: ['input', 'keydown'], // list of listeners for addit
+            subscribe: ['currentText'],
             ...options,
-            subscribe: ['currentText', 'colState'],
         });
     }
     init() {
@@ -20,9 +20,6 @@ class Formula extends ExcelComponent {
         this.$onSubscribe('table:select', ($cell) => {
             this.$formula.text($cell.text());
         });
-        // this.$subscribe((state)=>{
-        //     this.$formula.text(state.currentText);
-        // });
     }
     toHTML() {
         return `
@@ -30,8 +27,8 @@ class Formula extends ExcelComponent {
             <div id="formula_field" class="input_field" contenteditable="" spellcheck="false"></div>
         `;
     }
-    storeChanged(changes) {
-        console.log("changes", changes);
+    storeChanged({currentText}) {
+        this.$formula.text(currentText);
     }
 
     onInput(event) { // method for input

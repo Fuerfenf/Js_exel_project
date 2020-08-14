@@ -18,6 +18,5 @@ const excel = new Excel('#app', {
     components: [Header, ToolBar, Formula, Table],
     store,
 });
-
 excel.render();
 // place for inisial components/ write in ExcelComponent
