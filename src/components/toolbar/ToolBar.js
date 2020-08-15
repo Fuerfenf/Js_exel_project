@@ -37,8 +37,9 @@ class ToolBar extends ExcelStateComponent {
         if ($target.dataIndex.type === 'button') {
             const value = JSON.parse($target.dataIndex.value);
             const elemTypeKey = Object.keys(value)[0];
+
             this.setState({[elemTypeKey]: value[elemTypeKey]});
-            console.log(this.state)
+            console.log(this.state);
         }
     }
 }

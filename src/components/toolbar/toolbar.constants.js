@@ -5,23 +5,23 @@ function packButton(state) {
     const buttonName = [
         {
             type: 'format_align_left',
-            active: false,
+            active: state['textAlign'] === 'left',
             value: {textAlign: 'left'},
         },
         {
             type: 'format_align_right',
-            active: false,
+            active: state['textAlign'] === 'right',
             value: {textAlign: 'right'},
         },
         {
             type: 'format_align_justify',
-            active: false,
+            active: state['textAlign'] === 'justify',
             value: {textAlign: 'justify'},
         },
         {
             type: 'format_align_center',
-            active: false,
-            value: {textAlign: 'center'},
+            active: state['textAlign'] === 'center',
+            value: {textAlign: state['textAlign'] === 'center' ? 'left': 'center'},
         },
         {
             type: 'format_bold',
@@ -30,13 +30,14 @@ function packButton(state) {
         },
         {
             type: 'format_italic',
-            active: false,
-            value: {textStyle: 'italic'},
+            active: state['textStyle'] === 'italic',
+            value: {textStyle: state['textStyle'] === 'italic' ? 'normal': 'italic'},
         },
         {
             type: 'format_underlined',
-            active: false,
-            value: {textDecoration: 'underline'},
+            active: state['textDecoration'] === 'underline',
+            value: {textDecoration: state['textDecoration'] === 'underline'?
+                    'normal' : 'underline'},
         },
     ];
     return buttonName.map(createButton).join('');
