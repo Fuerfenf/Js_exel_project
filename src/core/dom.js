@@ -87,6 +87,12 @@ class Dom {
                 this.$domEl.style[key] = styles[key];
             });
     }
+    getStyles(styles = []) {
+        return styles.reduce((result, style) => {
+            result[style] = this.$domEl.style[style];
+            return result;
+        }, {});
+    }
 }
 
 export function $(selector) { // take selector or node

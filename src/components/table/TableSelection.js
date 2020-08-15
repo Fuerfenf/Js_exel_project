@@ -23,4 +23,8 @@ class TableSelection {
         this.cellgroup = $group;
         this.cellgroup.forEach(($el)=>$el.addClass(TableSelection.className));
     }
+    appCellDataStyle(style) {
+        this.cellgroup.forEach(($element) =>
+            $element.css(style));
+    }
 }

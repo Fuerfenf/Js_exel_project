@@ -5,6 +5,7 @@ import {resizingHendler} from '@/components/table/resizing';
 import {TableSelection} from '@/components/table/TableSelection';
 import {isCell, shouldResize, buildCellMatrix, nextSelector} from '@/components/table/table.functions';
 import * as actions from '@/redux/actions';
+import {defaultStyles} from '@core/constants';
 export {Table};
 
 class Table extends ExcelComponent {
@@ -38,11 +39,15 @@ class Table extends ExcelComponent {
         this.$onSubscribe('formula:done', () => {
             this.selectionType.currentCell.focusOn();
         });
+        this.$onSubscribe('toolbar:applyStyle', (style) =>{
+           this.selectionType.appCellDataStyle(style);
+        });
     }
 
     selectCell($cell) {
         this.selectionType.select($cell);
         this.$observe('table:select', $cell);
+        console.log($cell.getStyles(Object.keys(defaultStyles)));
     }
     async resizeTable(event) {
         try {

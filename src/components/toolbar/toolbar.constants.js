@@ -11,13 +11,13 @@ function packButton(state) {
         {
             type: 'format_align_right',
             active: state['textAlign'] === 'right',
-            value: {textAlign: 'right'},
+            value: {textAlign: state['textAlign'] === 'right' ? 'left': 'right'},
         },
-        {
-            type: 'format_align_justify',
-            active: state['textAlign'] === 'justify',
-            value: {textAlign: 'justify'},
-        },
+        // {
+        //     type: 'format_align_justify',
+        //     active: state['textAlign'] === 'justify',
+        //     value: {textAlign: state['textAlign'] === 'justify' ? 'left': 'justify'},
+        // },
         {
             type: 'format_align_center',
             active: state['textAlign'] === 'center',
@@ -30,14 +30,13 @@ function packButton(state) {
         },
         {
             type: 'format_italic',
-            active: state['textStyle'] === 'italic',
-            value: {textStyle: state['textStyle'] === 'italic' ? 'normal': 'italic'},
+            active: state['fontStyle'] === 'italic',
+            value: {fontStyle: state['fontStyle'] === 'italic' ? 'normal': 'italic'},
         },
         {
             type: 'format_underlined',
             active: state['textDecoration'] === 'underline',
-            value: {textDecoration: state['textDecoration'] === 'underline'?
-                    'normal' : 'underline'},
+            value: {textDecoration: state['textDecoration'] === 'underline' ? 'none' : 'underline'},
         },
     ];
     return buttonName.map(createButton).join('');
