@@ -1,10 +1,10 @@
-import {buttonName} from '@/components/toolbar/toolbar.constants';
+import {packButton} from '@/components/toolbar/toolbar.constants';
 
-export {createToolbar};
+export {createToolbar, createButton};
 
 
-function createToolbar() {
-    return buttonName.map(createButton).join('');
+function createToolbar(state) {
+    return packButton(state);
 }
 
 function createButton(buttonName) {
@@ -15,8 +15,8 @@ function createButton(buttonName) {
     return `
     <div class="button ${buttonName.active ? 'active' : ''}"
     ${metaData}>
-        <i class="material-icons" 
-        ${metaData}>${buttonName.type}</i>
+        <i class="material-icons" ${metaData}>
+            ${buttonName.type}</i>
      </div>
     `;
 }
