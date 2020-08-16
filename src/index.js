@@ -1,5 +1,5 @@
 import {createStore} from '@core/createStore';
-import {storage} from '@core/utils';
+import {debounce, storage} from '@core/utils';
 import {Excel} from '@/components/excel/Excel';
 import {Header} from '@/components/header/Header';
 import {ToolBar} from '@/components/toolbar/ToolBar';
@@ -11,9 +11,11 @@ import './scss/index.scss';
 
 const key = 'excel-state';
 const store = createStore(rootReducer, initialState);
-store.subscribe((state) => { // used for save state local
+const stateListener = debounce((state) => { // used for save state local
     storage(key, state);
-});
+}, 300); // function, timeout time
+store.subscribe(stateListener);
+
 const excel = new Excel('#app', {
     components: [Header, ToolBar, Formula, Table],
     store,

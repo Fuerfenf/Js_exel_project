@@ -38,6 +38,5 @@ class ExcelComponent extends DOMListener {
     destroy() { // delete component clear DOMListeners
         this.removeDomListeners();
         this.unsubscribers.forEach((unsub) => unsub());
-        // this.storeSub.unsubscribe();
     }
 }

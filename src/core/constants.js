@@ -1,4 +1,4 @@
-export {defaultStyles};
+export {defaultStyles, defaultTitle};
 
 const defaultStyles = {
     textAlign: 'left',
@@ -6,3 +6,4 @@ const defaultStyles = {
     textDecoration: 'none',
     fontStyle: 'normal',
 };
+const defaultTitle = 'New Table';

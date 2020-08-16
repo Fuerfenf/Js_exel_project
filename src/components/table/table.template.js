@@ -1,4 +1,5 @@
-import {toInlineStyles} from "@core/utils";
+import {toInlineStyles} from '@core/utils';
+import {defaultStyles} from "@core/constants";
 
 export {createTable};
 // base const
@@ -15,7 +16,10 @@ function buildCell(state, row) {
         const idCell = `${row}:${colIndex}`;
         const width = getResWidth(state.colState, colIndex);
         const data = state.dataState[idCell];
-        const styles = toInlineStyles(state.stylesState[idCell]);
+        const styles = toInlineStyles({
+            ...defaultStyles,
+            ...state.stylesState[idCell],
+        });
         return `
             <div    
              class="cell" 

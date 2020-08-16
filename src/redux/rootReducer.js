@@ -1,5 +1,4 @@
-import {CHANGE_TEXT, CHANGE_STYLES, TABLE_RESIZE, APPLY_STILE} from '@/redux/types';
-import {toInlineStyles} from '@core/utils';
+import {CHANGE_TEXT, CHANGE_STYLES, TABLE_RESIZE, APPLY_STILE, CHANGE_TITLE} from '@/redux/types';
 export {rootReducer};
 
 function rootReducer(state, action) {
@@ -32,7 +31,11 @@ function rootReducer(state, action) {
                     ...action.data.value,
                 },
             };
-            default: return state;
+        case CHANGE_TITLE:
+            return {
+                ...state, title: action.data,
+            };
+        default: return state;
     }
 }
 

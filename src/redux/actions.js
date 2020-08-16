@@ -1,5 +1,5 @@
-import {TABLE_RESIZE, CHANGE_TEXT, CHANGE_STYLES, APPLY_STILE} from '@/redux/types';
-export {tableResize, changeText, changeStyles, applyStyle};
+import {TABLE_RESIZE, CHANGE_TEXT, CHANGE_STYLES, APPLY_STILE, CHANGE_TITLE} from '@/redux/types';
+export {tableResize, changeText, changeStyles, applyStyle, changeTitle};
 
 // action creators
 function tableResize(data) {
@@ -26,6 +26,13 @@ function changeStyles(data) {
 function applyStyle(data) { // data - value, id array
     return {
         type: APPLY_STILE,
+        data,
+    };
+}
+
+function changeTitle(data) {
+    return {
+        type: CHANGE_TITLE,
         data,
     };
 }

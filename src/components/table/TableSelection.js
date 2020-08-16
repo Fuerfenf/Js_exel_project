@@ -19,7 +19,7 @@ class TableSelection {
         this.cellgroup = [];
     }
     get selectedIds() {
-        return this.cellgroup.map(($el) => $el.getId());
+        return this.cellgroup.map(($cell) => $cell.getId());
     }
     selectGroup($group =[]) {
         this.clear();

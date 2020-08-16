@@ -1,6 +1,6 @@
 // Pure functions
 
-export {capitalize, storage, camelToDashCase, toInlineStyles};
+export {capitalize, storage, camelToDashCase, toInlineStyles, debounce};
 
 function capitalize(innerString) {
     if (typeof innerString !== 'string') {
@@ -31,4 +31,17 @@ function toInlineStyles(styles={}) {
     return Object.keys(styles)
         .map((key) => `${camelToDashCase(key)}: ${styles[key]}`)
         .join(';');
+}
+
+function debounce(func, wait) { // accept function and time returned function
+    let timeout;
+    return function(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            // eslint-disable-next-line
+            func.apply(this, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
 }
