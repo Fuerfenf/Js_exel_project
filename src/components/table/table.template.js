@@ -1,3 +1,5 @@
+import {toInlineStyles} from "@core/utils";
+
 export {createTable};
 // base const
 const CODES = {
@@ -12,21 +14,17 @@ function buildCell(state, row) {
     return function(__, colIndex) {
         const idCell = `${row}:${colIndex}`;
         const width = getResWidth(state.colState, colIndex);
-        let data;
-        try {
-            data = state.dataState[idCell];
-         } catch (e) {
-            data = '';
-        }
+        const data = state.dataState[idCell];
+        const styles = toInlineStyles(state.stylesState[idCell]);
         return `
-            <div
+            <div    
              class="cell" 
              contenteditable
              data-type="cell"
              data-col="${colIndex}"
              data-row="${row}"
              data-id="${idCell}"
-             style="width: ${width}"
+             style="${styles}; width: ${width}"
              >${data || ''}</div>`;
     };
 }

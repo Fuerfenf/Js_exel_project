@@ -18,6 +18,9 @@ class TableSelection {
         this.cellgroup.forEach(($cell) => $cell.removeClass(TableSelection.className));
         this.cellgroup = [];
     }
+    get selectedIds() {
+        return this.cellgroup.map(($el) => $el.getId());
+    }
     selectGroup($group =[]) {
         this.clear();
         this.cellgroup = $group;

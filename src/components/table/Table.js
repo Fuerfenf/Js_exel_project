@@ -39,15 +39,22 @@ class Table extends ExcelComponent {
         this.$onSubscribe('formula:done', () => {
             this.selectionType.currentCell.focusOn();
         });
-        this.$onSubscribe('toolbar:applyStyle', (style) =>{
-           this.selectionType.appCellDataStyle(style);
+        this.$onSubscribe('toolbar:applyStyle', (value) =>{
+            // console.log('TAble style:', style);
+           this.selectionType.appCellDataStyle(value);
+           this.$dispatch(actions.applyStyle({
+               value,
+               ids: this.selectionType.selectedIds,
+           }));
         });
     }
 
     selectCell($cell) {
         this.selectionType.select($cell);
         this.$observe('table:select', $cell);
-        console.log($cell.getStyles(Object.keys(defaultStyles)));
+        const styles = $cell.getStyles(Object.keys(defaultStyles));
+        // console.log('styles to dispatch:', styles);
+        this.$dispatch(actions.changeStyles(styles));
     }
     async resizeTable(event) {
         try {
