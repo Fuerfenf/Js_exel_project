@@ -41,15 +41,15 @@
   }
 }
 
-@mixin button_align($color: black) {
+@mixin button($color: #3aba04) {
   height: 20px;
   min-width: 20px;
   padding: 0px;
   text-align: center;
   position: relative;
   display: inline-block;
-  border-radius: 3px;
-  color: rgba(0,0,0, .9); // blackout
+  border-radius: 5px;
+  color: rgba(71, 68, 68, 0.9); // blackout
   & span {
     font-size: 22px;
   }
@@ -57,7 +57,7 @@
     color: $color;
   }
   &:hover {
-    background: grey;
+    background: #bab7b7;
     cursor: pointer;
   }
 }

@@ -7,7 +7,9 @@ class ExcelComponent extends DOMListener {
         super($root, options.listeners);
         this.name = options.name || '';
         this.observer = options.observer;
-        this.unsebscribers = [];
+        this.subscribe = options.subscribe || [];
+        this.store = options.store;
+        this.unsubscribers = [];
         this.prepare();
     }
     $observe(event, ...args) { // notificate listeners about event
@@ -15,7 +17,16 @@ class ExcelComponent extends DOMListener {
     }
     $onSubscribe(event, func) { // subscribe on event
         const unsub = this.observer.subscribe(event, func);
-        this.unsebscribers.push(unsub);
+        this.unsubscribers.push(unsub);
+    }
+    $dispatch(action) {
+        this.store.dispatch(action);
+    }
+    storeChanged() { // this came changes, on thous fields on witch we subscribe
+
+    }
+    isWatching(key) {
+        return this.subscribe.includes(key);
     }
     prepare() {} // prepare called early then init
     toHTML() { // return component pattern
@@ -26,6 +37,6 @@ class ExcelComponent extends DOMListener {
     }
     destroy() { // delete component clear DOMListeners
         this.removeDomListeners();
-        this.unsebscribers.forEach((unsub) => unsub());
+        this.unsubscribers.forEach((unsub) => unsub());
     }
 }

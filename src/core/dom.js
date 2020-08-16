@@ -14,7 +14,7 @@ class Dom {
         return this;
     }
     text(text) {
-        if (typeof text ==='string') {
+        if (typeof text !=='undefined') { // with type text or number -> 2 steps and worked incorrect USE !== UNDEFINED
             this.$domEl.textContent = text;
             return this;
         }
@@ -79,6 +79,13 @@ class Dom {
         this.$domEl.focus();
         return this;
     }
+    attr(name, value) {
+        if (value) {
+            this.$domEl.setAttribute(name, value);
+            return this;
+        }
+        return this.$domEl.getAttribute(name);
+    }
     css(styles={}) { // method for changing params width/height and others take obj
         // best practice for iteration in object Object.keys(obj), because in cycle FOR IN also takes prototype params its wrong way (for example methods)
         Object
@@ -86,6 +93,12 @@ class Dom {
             .forEach((key) => {
                 this.$domEl.style[key] = styles[key];
             });
+    }
+    getStyles(styles = []) {
+        return styles.reduce((result, style) => {
+            result[style] = this.$domEl.style[style];
+            return result;
+        }, {});
     }
 }
 

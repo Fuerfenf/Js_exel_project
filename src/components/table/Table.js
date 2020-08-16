@@ -4,12 +4,16 @@ import {createTable} from '@/components/table/table.template';
 import {resizingHendler} from '@/components/table/resizing';
 import {TableSelection} from '@/components/table/TableSelection';
 import {isCell, shouldResize, buildCellMatrix, nextSelector} from '@/components/table/table.functions';
+import * as actions from '@/redux/actions';
+import {defaultStyles} from '@core/constants';
+import {parse} from '@core/parse';
 export {Table};
 
 class Table extends ExcelComponent {
     static get getClsName() {
         return 'excel__table';
     }
+
     constructor($root, options) {
         super($root, {
             name: 'Table',
@@ -17,25 +21,56 @@ class Table extends ExcelComponent {
             ...options,
         });
     }
+
     toHTML() {
-        return createTable(15);
+        return createTable(15, this.store.getState());
     }
+
     prepare() {
         this.selectionType = new TableSelection();
     }
+
     init() {
         super.init(); // need for Domlisteners
         this.selectCell(this.$root.selectOne('[data-id="0:0"]'));
         this.$onSubscribe('formula:input', (text) => { //  flag and its will be same in formul
-            this.selectionType.currentCell.text(text);
+            this.selectionType.currentCell
+                .attr('data-value', text)
+                .text(parse(text));
+            this.updateTextInStore(text);
         });
         this.$onSubscribe('formula:done', () => {
             this.selectionType.currentCell.focusOn();
         });
+        this.$onSubscribe('toolbar:applyStyle', (value) =>{
+            // console.log('TAble style:', style);
+           this.selectionType.appCellDataStyle(value);
+           this.$dispatch(actions.applyStyle({
+               value,
+               ids: this.selectionType.selectedIds,
+           }));
+        });
     }
+
+    selectCell($cell) {
+        this.selectionType.select($cell);
+        this.$observe('table:select', $cell);
+        const styles = $cell.getStyles(Object.keys(defaultStyles));
+        // console.log('styles to dispatch:', styles);
+        this.$dispatch(actions.changeStyles(styles));
+    }
+    async resizeTable(event) {
+        try {
+            const data = await resizingHendler(this.$root, event);
+            this.$dispatch(actions.tableResize(data));
+        } catch (exept) {
+            console.warn('Resize error', exept.message);
+        }
+    }
+
     onMousedown(event) {
         if (shouldResize(event)) {
-            resizingHendler(this.$root, event);
+            this.resizeTable((event));
         } else if (isCell(event)) {
             const $target = $(event.target);
             if (event.shiftKey) {
@@ -43,10 +78,11 @@ class Table extends ExcelComponent {
                     .map((id) => this.$root.selectOne(`[data-id="${id}"]`));
                 this.selectionType.selectGroup($cells);
             } else {
-                this.selectionType.select($target);
+                this.selectCell($target);
             }
         }
     }
+
     onKeydown(event) {
         const keys = [
             'Enter',
@@ -55,7 +91,7 @@ class Table extends ExcelComponent {
             'AltLeft',
             'ArrowUp', 'ArrowDown', 'ArrowRight', 'ArrowLeft',
         ];
-        const {key} =event;
+        const {key} = event;
         if (keys.includes(key) && !event.shiftKey) { // without shift next down sell if shift in cell next line
             event.preventDefault(); // override default behavior
             const idCell = this.selectionType.currentCell.getId(true);
@@ -63,11 +99,13 @@ class Table extends ExcelComponent {
             this.selectCell($next);
         }
     }
-    onInput(event) {
-        this.$observe('table:input', $(event.target));
+    updateTextInStore(value) {
+        this.$dispatch(actions.changeText({
+            id: this.selectionType.currentCell.getId(),
+            value,
+        }));
     }
-    selectCell($cell) {
-        this.selectionType.select($cell);
-        this.$observe('table:select', $cell);
+    onInput(event) {
+        this.updateTextInStore($(event.target).text());
     }
 }

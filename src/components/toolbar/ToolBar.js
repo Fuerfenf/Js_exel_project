@@ -1,7 +1,10 @@
-import {ExcelComponent} from '@core/ExcelComponent';
+import {createToolbar} from '@/components/toolbar/toolbar.templates';
+import {$} from '@core/dom';
+import {ExcelStateComponent} from '@core/ExcelStateComponent';
+import {defaultStyles} from '@core/constants';
 export {ToolBar};
 
-class ToolBar extends ExcelComponent {
+class ToolBar extends ExcelStateComponent {
     static get getClsName() {
         return 'excel__toolbar';
     }
@@ -9,42 +12,31 @@ class ToolBar extends ExcelComponent {
         super($root, {
             name: 'Toolbar',
             listeners: ['click'],
-            ...options
+            subscribe: ['currentStyles'],
+            ...options,
         });
     }
+    prepare() {
+        this.initState(defaultStyles);
+    }
 
+    get template() {
+        return createToolbar(this.state);
+    }
+    storeChanged(changes) {
+        this.setState(changes.currentToolbarStyles);
+    }
     toHTML() {
-        return `
-         <div> <!-- Align -->
-                <div class="button_align">
-                    <span class="material-icons">format_align_left</span>
-                </div>
-                <div class="button_align">
-                    <span class="material-icons">format_align_right</span>
-                </div>
-                <div class="button_align">
-                    <span class="material-icons">format_align_justify</span>
-                </div>
-                <div class="button_align">
-                    <span class="material-icons">format_align_center</span>
-                </div>
-            </div>
-            <div>
-                <div class="button_format">
-                    <span class="material-icons">format_bold</span>
-                </div>
-
-                <div class="button_format">
-                    <span class="material-icons">format_italic</span>
-                </div>
-
-                <div class="button_format">
-                    <span class="material-icons">format_underlined</span>
-                </div>
-            </div>
-        `;
+        return this.template;
     }
     onClick(event) {
-        console.log(event.target);
+        const $target = $(event.target);
+        if ($target.dataIndex.type === 'button') {
+            const value = JSON.parse($target.dataIndex.value);
+            this.$observe('toolbar:applyStyle', value);
+
+            // const elemTypeKey = Object.keys(value)[0];
+            // this.setState({[elemTypeKey]: value[elemTypeKey]});
+        }
     }
 }
