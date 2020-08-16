@@ -1,5 +1,6 @@
 import {toInlineStyles} from '@core/utils';
-import {defaultStyles} from "@core/constants";
+import {defaultStyles} from '@core/constants';
+import {parse} from '@core/parse';
 
 export {createTable};
 // base const
@@ -28,8 +29,9 @@ function buildCell(state, row) {
              data-col="${colIndex}"
              data-row="${row}"
              data-id="${idCell}"
+             data-value="${data || ''}"
              style="${styles}; width: ${width}"
-             >${data || ''}</div>`;
+             >${parse(data) || ''}</div>`;
     };
 }
 function buildColumn({col, index, width}) {

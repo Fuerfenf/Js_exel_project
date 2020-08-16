@@ -6,6 +6,7 @@ import {TableSelection} from '@/components/table/TableSelection';
 import {isCell, shouldResize, buildCellMatrix, nextSelector} from '@/components/table/table.functions';
 import * as actions from '@/redux/actions';
 import {defaultStyles} from '@core/constants';
+import {parse} from '@core/parse';
 export {Table};
 
 class Table extends ExcelComponent {
@@ -33,7 +34,9 @@ class Table extends ExcelComponent {
         super.init(); // need for Domlisteners
         this.selectCell(this.$root.selectOne('[data-id="0:0"]'));
         this.$onSubscribe('formula:input', (text) => { //  flag and its will be same in formul
-            this.selectionType.currentCell.text(text);
+            this.selectionType.currentCell
+                .attr('data-value', text)
+                .text(parse(text));
             this.updateTextInStore(text);
         });
         this.$onSubscribe('formula:done', () => {

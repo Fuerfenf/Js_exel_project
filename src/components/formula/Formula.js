@@ -18,7 +18,7 @@ class Formula extends ExcelComponent {
         super.init();
         this.$formula = this.$root.selectOne('#formula_field');
         this.$onSubscribe('table:select', ($cell) => {
-            this.$formula.text($cell.text());
+            this.$formula.text($cell.dataIndex.value);
         });
     }
     toHTML() {
