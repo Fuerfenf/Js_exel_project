@@ -11,6 +11,7 @@ import {Table} from '@/components/table/Table';
 
 export class ExcelPage extends Page {
     getRoot() {
+        console.log(this.params); // del after
         const key = 'excel-state';
         const store = createStore(rootReducer, initialState);
         const stateListener = debounce((state) => { // used for save state local
