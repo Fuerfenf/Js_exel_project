@@ -1,7 +1,8 @@
 import {$} from '@core/dom';
 import {Observer} from '@core/Observer';
 import {StoreSubscriber} from '@core/StoreSubscriber';
-import {updateDate} from "@/redux/actions";
+import {updateDate} from '@/redux/actions';
+import {preventDefault} from "@core/utils";
 export {Excel};
 
 class Excel {
@@ -27,6 +28,9 @@ class Excel {
         return $root; // return html configet tag to Dom
     }
     init() {
+        if (process.env.NODE_ENC === 'production') {
+            document.createElement('contextmenu', preventDefault);
+        }
         this.store.dispatch(updateDate());
         this.subscriber.subscribeComponents(this.components);
         this.components.forEach((component) => component.init());
@@ -34,5 +38,6 @@ class Excel {
     destroy() {
         this.subscriber.unsubscribeComponents();
         this.components.forEach((component) => component.destroy());
+        document.removeEventListener('contextmenu', preventDefault);
     }
 }

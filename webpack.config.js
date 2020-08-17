@@ -1,4 +1,5 @@
 const path = require('path'); // <- save path to directory
+const webpack = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); // A webpack plugin to remove/clean your build folder(s).
 const HTMLWebpackPlugin = require('html-webpack-plugin'); // HTML files to serve your webpack bundles
 const CopyPlugin = require('copy-webpack-plugin');
@@ -65,6 +66,9 @@ module.exports = {
             }),
         new MiniCssExtractPlugin({
             filename: bundleFilename('css'),
+        }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
         }),
     ],
     module: {

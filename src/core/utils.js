@@ -49,3 +49,6 @@ function debounce(func, wait) { // accept function and time returned function
 export function clone(object) {
     return JSON.parse(JSON.stringify(object));
 }
+export function preventDefault(event) {
+    event.preventDefault();
+}
