@@ -1,6 +1,7 @@
 import {$} from '@core/dom';
 import {Observer} from '@core/Observer';
 import {StoreSubscriber} from '@core/StoreSubscriber';
+import {updateDate} from "@/redux/actions";
 export {Excel};
 
 class Excel {
@@ -26,6 +27,7 @@ class Excel {
         return $root; // return html configet tag to Dom
     }
     init() {
+        this.store.dispatch(updateDate());
         this.subscriber.subscribeComponents(this.components);
         this.components.forEach((component) => component.init());
     }

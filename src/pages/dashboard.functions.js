@@ -2,11 +2,14 @@ import {storage} from '@core/utils';
 
 function toHtml(key) {
     const model = storage(key);
-    const utc = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
+    // const utc = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
     return `
         <li class="db__record">
             <a href="#excel/${key.split(':')[1]}">${model.title}</a>
-            <strong>${utc.toString()}</strong>
+            <strong>
+                ${new Date(model.openDate).toLocaleDateString()}
+                ${new Date(model.openDate).toLocaleTimeString()}
+            </strong>
         </li>
     `;
 }

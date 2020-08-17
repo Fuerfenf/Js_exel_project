@@ -38,13 +38,13 @@ export class Header extends ExcelComponent {
     }
     onClick(event) {
         const $target = $(event.target);
-        if ($target.dataIndex.button === 'remove') {
+        if ($target.dataIndex.button === 'exit') {
             const confurmeToDelet = confirm('You want delete this table ?');
             if (confurmeToDelet) {
                 localStorage.removeItem('excel:'+ ActiveRoute.param[1]);
                 ActiveRoute.navigate('');
             }
-        } else if ($target.dataIndex.button === 'exit') {
+        } else if ($target.dataIndex.button === 'remove') {
             ActiveRoute.navigate('');
         }
     }

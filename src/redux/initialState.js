@@ -9,6 +9,7 @@ const defaultState = {
     stylesState: {},
     title: defaultTitle,
     currentText: '',
+    openDate: new Date().toJSON(),
     currentToolbarStyles: defaultStyles,
 };
 
