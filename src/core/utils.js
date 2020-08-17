@@ -45,3 +45,10 @@ function debounce(func, wait) { // accept function and time returned function
         timeout = setTimeout(later, wait);
     };
 }
+
+export function clone(object) {
+    return JSON.parse(JSON.stringify(object));
+}
+export function preventDefault(event) {
+    event.preventDefault();
+}

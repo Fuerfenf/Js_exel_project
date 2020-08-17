@@ -1,11 +1,12 @@
 import {$} from '@core/dom';
 import {Observer} from '@core/Observer';
 import {StoreSubscriber} from '@core/StoreSubscriber';
+import {updateDate} from '@/redux/actions';
+import {preventDefault} from "@core/utils";
 export {Excel};
 
 class Excel {
-    constructor(selector, options) {
-        this.$el = $(selector); // marks $ DOM node
+    constructor(options) {
         this.components = options.components || [];// in base free array
         this.store = options.store;
         this.observer = new Observer(); // objext obsorver for exel (central object)
@@ -26,13 +27,17 @@ class Excel {
         });
         return $root; // return html configet tag to Dom
     }
-    render() {
-        this.$el.append(this.getRoot());
+    init() {
+        if (process.env.NODE_ENC === 'production') {
+            document.createElement('contextmenu', preventDefault);
+        }
+        this.store.dispatch(updateDate());
         this.subscriber.subscribeComponents(this.components);
         this.components.forEach((component) => component.init());
     }
     destroy() {
         this.subscriber.unsubscribeComponents();
         this.components.forEach((component) => component.destroy());
+        document.removeEventListener('contextmenu', preventDefault);
     }
 }
