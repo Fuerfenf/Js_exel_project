@@ -1,8 +1,12 @@
-function toHtml() {
+import {storage} from '@core/utils';
+
+function toHtml(key) {
+    const model = storage(key);
+    const utc = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
     return `
         <li class="db__record">
-            <a href="#">Table N1</a>
-            <strong>12.10.2012</strong>
+            <a href="#excel/${key.split(':')[1]}">${model.title}</a>
+            <strong>${utc.toString()}</strong>
         </li>
     `;
 }
@@ -20,7 +24,6 @@ function getAllTableKeys() {
 
 export function createRecordsTable() {
     const keys = getAllTableKeys();
-    console.log('keys', keys);
     if (!keys.length) {
         return `<p>No tables</p>`;
     }
